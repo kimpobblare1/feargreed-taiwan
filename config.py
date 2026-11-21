@@ -33,11 +33,14 @@ JP_SITE = {
     "asof_path": "jp.as_of",
 }
 KR_SITE = {
-    "url": "",            # ← 한국 사이트 주소를 넣어 주세요
-    "json": "",           # ← 한국 점수 JSON 주소 (예: https://feargree-api.vercel.app/api/...)
-    "score_path": "score",
-    "prev_path": "previous_close",
-    "asof_path": "as_of",
+    "url": "https://feargreed.co.kr",
+    # 한국 사이트 게이지와 같은 실시간 점수 (하루 4번만 호출 → 부하 거의 없음)
+    "json": "https://feargree-api.vercel.app/api",
+    "score_path": "kr.score",
+    "prev_path": "",
+    "asof_path": "",
+    # API가 실패할 때만: 메인 페이지 시황 코멘트의 점수로 대체
+    "html_comments": "https://feargreed.co.kr/",
 }
 
 # ── 색상 (신뢰감: 남색·청록 / 부드러움: 둥근 모서리·따뜻한 노랑 포인트) ─
