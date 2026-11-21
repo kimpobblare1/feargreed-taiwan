@@ -370,7 +370,7 @@ def main(argv=None):
     us, us_hist = None, {}
     try:
         us, us_hist = S.cnn_fear_greed()
-        log("  ✅ 미국(CNN) %d" % us["score"])
+        log("  ✅ 미국(CNN) %d (과거 기록 %d일)" % (us["score"], len(us_hist)))
     except Exception as e:  # noqa: BLE001
         log("  ⚠ CNN 실패:", e)
     sis = {}
@@ -386,6 +386,13 @@ def main(argv=None):
         us = {k: u.get(k) for k in ("score", "previous_close", "previous_1_week", "previous_1_month", "as_of")}
         us["url"] = "https://edition.cnn.com/markets/fear-and-greed"
         log("  ↪ 미국 값은 일본 사이트 데이터로 대체")
+    # CNN 과거 기록이 비었으면 일본 사이트의 기록(날짜별 미국 값)으로 채워요
+    if not us_hist and sis.get("jp"):
+        for hrow in sis["jp"]["_raw"].get("history", []) or []:
+            if isinstance(hrow, dict) and hrow.get("us") is not None and hrow.get("date"):
+                us_hist[hrow["date"]] = int(hrow["us"])
+        if us_hist:
+            log("  ↪ 미국 과거 기록 %d일을 일본 사이트 데이터로 채움" % len(us_hist))
     for v in sis.values():
         v.pop("_raw", None)
     out_other = {}

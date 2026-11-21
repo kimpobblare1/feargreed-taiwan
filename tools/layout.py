@@ -9,8 +9,8 @@ from urllib.parse import quote
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config as C  # noqa: E402
 
-ASSET_VER = "1"
-NAV = [("/", "首頁"), ("/blog/", "市場日報"), ("/methodology", "計算方法"), ("/guide", "新手指南"), ("/about", "關於我們")]
+ASSET_VER = "2"
+NAV = [("/", "今日指數"), ("/blog/", "每日日報"), ("/insights/", "雷達洞察"), ("/methodology", "計算方法"), ("/guide", "新手指南"), ("/about", "關於我們")]
 
 
 def url(path):
@@ -71,8 +71,12 @@ def page(path, title, description, body, og_type="website", jsonld=None, noindex
 <meta property="og:image" content="{ogimg}">
 <meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#163A5F">
+<meta name="theme-color" content="#0F1E33">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="{site}" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -84,10 +88,10 @@ def page(path, title, description, body, og_type="website", jsonld=None, noindex
 <header class="site-header">
   <div class="wrap hdr">
     <a class="brand" href="/" aria-label="{site} 首頁">
-      <img src="/assets/favicon.svg" width="34" height="34" alt="">
-      <span><b>{site}</b><small>{site_en}</small></span>
+      <img src="/assets/favicon.svg" width="38" height="38" alt="">
+      <span><b>{site}</b><small>{sub}</small></span>
     </a>
-    <button class="menu-btn" aria-label="選單" aria-expanded="false" onclick="var n=document.querySelector('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰</button>
+    <button class="menu-btn" aria-label="選單" aria-expanded="false" onclick="var n=document.querySelector('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">選單</button>
     <nav class="nav">{nav}</nav>
   </div>
 </header>
@@ -97,26 +101,26 @@ def page(path, title, description, body, og_type="website", jsonld=None, noindex
 <footer class="site-footer">
   <div class="wrap foot">
     <div>
-      <p class="foot-brand">{site}<span> · {site_en}</span></p>
-      <p class="muted">本站內容僅供資訊參考，不構成任何投資建議或買賣邀約。投資有風險，請自行判斷並承擔責任。</p>
-      <p class="muted small">資料來源：臺灣證券交易所、臺灣期貨交易所、Yahoo Finance、CNN Business。指數由本站依公開資料自行計算。</p>
+      <p class="foot-brand"><img src="/assets/favicon.svg" width="26" height="26" alt=""> {site}<span>{sub}</span></p>
+      <p>本站內容僅供資訊參考，不構成任何投資建議或買賣邀約。投資有風險，請自行判斷並承擔責任。</p>
+      <p class="small">資料來源：臺灣證券交易所、臺灣期貨交易所、Yahoo Finance、CNN Business。台股指數由本站依公開資料自行計算，<a href="/methodology">計算方法完整公開</a>。</p>
     </div>
     <div class="foot-links">
-      <a href="/about">關於我們</a><a href="/methodology">計算方法</a><a href="/privacy">隱私權政策</a>
-      <a href="/terms">使用條款與免責聲明</a><a href="/contact">聯絡我們</a><a href="/feed.xml">RSS</a>
+      <b>內容</b><a href="/">今日指數</a><a href="/blog/">每日日報</a><a href="/insights/">雷達洞察</a><a href="/guide">新手指南</a><a href="/feed.xml">RSS 訂閱</a>
     </div>
     <div class="foot-links">
-      <span class="muted small">姊妹站</span>
-      {sister}
-      <a href="https://edition.cnn.com/markets/fear-and-greed" rel="noopener" target="_blank">CNN 美股恐懼貪婪指數</a>
+      <b>關於</b><a href="/about">關於我們</a><a href="/methodology">計算方法</a><a href="/privacy">隱私權政策</a><a href="/terms">使用條款與免責聲明</a><a href="/contact">聯絡我們</a>
+    </div>
+    <div class="foot-links">
+      <b>其他市場</b>{sister}<a href="https://edition.cnn.com/markets/fear-and-greed" rel="noopener" target="_blank">CNN 美股恐懼貪婪指數</a>
     </div>
   </div>
-  <p class="wrap copy small muted">© {year} {operator}</p>
+  <p class="wrap copy small">© {year} {operator}</p>
 </footer>
 </body>
 </html>""".format(
         title=escape(full_title), desc=escape(description), canon=escape(url(path)), og_type=og_type,
-        site=escape(C.SITE_NAME), site_en=escape(C.SITE_NAME_EN), ogimg=escape(url(og_image)), ver=ASSET_VER,
+        site=escape(C.SITE_NAME), site_en=escape(C.SITE_NAME_EN), sub=escape(C.SITE_SUBTITLE), ogimg=escape(url(og_image)), ver=ASSET_VER,
         meta="\n".join(meta), ga=ga_head(), ads=adsense_head(), ld=ld, nav=nav, body=body,
         sister=sister_links(), year=C.LAUNCH_DATE[:4], operator=escape(C.OPERATOR_NAME))
 
@@ -124,9 +128,9 @@ def page(path, title, description, body, og_type="website", jsonld=None, noindex
 def sister_links():
     out = []
     if C.JP_SITE.get("url"):
-        out.append('<a href="%s" rel="noopener" target="_blank">日本 Fear &amp; Greed</a>' % escape(C.JP_SITE["url"]))
+        out.append('<a href="%s" rel="noopener" target="_blank">日股恐懼貪婪指數</a>' % escape(C.JP_SITE["url"]))
     if C.KR_SITE.get("url"):
-        out.append('<a href="%s" rel="noopener" target="_blank">韓國 Fear &amp; Greed</a>' % escape(C.KR_SITE["url"]))
+        out.append('<a href="%s" rel="noopener" target="_blank">韓股恐懼貪婪指數</a>' % escape(C.KR_SITE["url"]))
     return "".join(out)
 
 

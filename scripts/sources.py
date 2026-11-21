@@ -216,9 +216,13 @@ def taifex_pcr(start, end):
 
 # ── 미국 CNN ────────────────────────────────────────────────
 def cnn_fear_greed():
-    url = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata/"
+    base = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata/"
     h = dict(UA, Referer="https://edition.cnn.com/", Origin="https://edition.cnn.com")
-    j = _get(url, headers=h).json()
+    start = (datetime.now(TW_TZ).date() - timedelta(days=220)).isoformat()
+    try:
+        j = _get(base + start, headers=h).json()       # 시작일을 주면 과거 기록(차트용)이 함께 와요
+    except Exception:  # noqa: BLE001
+        j = _get(base, headers=h).json()
     fg = j["fear_and_greed"]
     ts = fg.get("timestamp", "")
     as_of = str(ts)[:10]

@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+# ▶ 雷達洞察(인사이트) 글 양식 (이 파일은 사이트에 올라가지 않아요)
+#   1) 이름을 insight_YYYYMMDD-영어주제.py 로 바꿔서 content/insights/ 에 올리기
+#      예) insight_20261125-foreign-selling.py  → 주소 /insights/20261125-foreign-selling
+#   2) 규칙: 본문 2,500자 이상(공백 제외) + 표 1개 이상 + 그래프 1개 이상 (없으면 빌드가 멈춰요)
+#   3) 그래프는 사이트에 쌓인 실제 데이터로 그려요 → series("taiex"), series("foreign"), latest()["history"] ...
+from blogkit import *  # noqa: F401,F403
+
+DATE_ISO = "2026-11-25"
+DATE_ID = "20261125-foreign-selling"
+PUBLISHED_ISO = "2026-11-25T20:00:00+08:00"
+TITLE = "外資一個月賣超逾兆元，台股恐懼貪婪指數跌到5：這次和過去有什麼不同？"
+META_TITLE = "外資賣超逾兆元、台股恐懼貪婪指數5｜恐貪雷達洞察"
+DESCRIPTION = "..."
+EXCERPT = "..."
+TAGS = ["台股恐懼貪婪指數", "外資賣超", "台股", "雷達洞察"]
+TW_SCORE = 5          # 선택 (없으면 점수판이 안 나와요)
+
+
+def build():
+    tx = series("taiex", "2026-08-01")           # [(날짜, 종가)]
+    fo = series("foreign", "2026-10-20")         # [(날짜, 외국인 순매수 억원)]
+    h = latest()["history"][-60:]                # 최근 60거래일 지수 기록
+    return (
+        keypoints(["요약1", "요약2", "요약3"])
+        + "<h2>一、...</h2><p>...</p>"
+        + line_chart([d[5:] for d, _ in tx], {"加權指數": [v for _, v in tx]}, title="加權指數收盤", unit="點", source="臺灣證券交易所")
+        + line_chart([x["date"][5:] for x in h], {"台股": [x["tw"] for x in h], "美股（CNN）": [x.get("us") for x in h]},
+                     title="台美恐懼貪婪指數", zones=True, source="恐貪雷達、CNN")
+        + bar_chart([d[5:] for d, _ in fo], [v for _, v in fo], title="外資每日買賣超", unit="億元", source="臺灣證券交易所")
+        + table(["項目", "數值"], [["...", "..."]])
+        + "<h2>二、...</h2><p>...</p>"
+    )
