@@ -1,0 +1,10 @@
+// Cloudflare 배포 설정: public 폴더를 그대로 사이트로 공개해요
+{
+  "name": "feargreed-taiwan",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
