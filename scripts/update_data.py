@@ -43,7 +43,7 @@ INDICATORS = [
     ("breadth", "漲跌家數", 0.15, False, "%", "上市股票近10日上漲與下跌家數的淨比率。上漲家數越多越貪婪。"),
     ("margin", "融資餘額", 0.15, False, "%", "上市融資餘額的20日變化率。散戶加碼槓桿代表貪婪。"),
     ("foreign", "外資動向", 0.15, False, "億元", "外資近20個交易日累計買賣超。持續買超代表貪婪。"),
-    ("pcr", "選擇權避險", 0.10, True, "%", "台指選擇權賣權/買權成交量比（5日平均）。避險需求越高越恐懼。"),
+    ("pcr", "選擇權多空比", 0.10, False, "%", "台指選擇權賣權/買權成交量比（5日平均）。台股行情強勢時賣權成交量常隨之增加，比值越高越偏多。"),
     ("fx", "新台幣匯率", 0.10, True, "%", "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。"),
 ]
 KEYS = [k for k, *_ in INDICATORS]
@@ -109,6 +109,16 @@ def collect(cache, backfill):
                 log("    FMTQIK", d, e2)
             d = (d - timedelta(days=1)).replace(day=1)
         status["taiex"] = "TWSE FMTQIK %d일" % got
+    # 최근 거래일은 TWSE 공식 종가로 덮어쓰기 (Yahoo가 마지막 날을 비워 두는 경우가 있어서)
+    if "Yahoo" in status.get("taiex", ""):
+        d = now.date().replace(day=1)
+        for mm in (d, (d - timedelta(days=1)).replace(day=1)):
+            try:
+                for day, close, _val in S.twse_taiex_month(mm.strftime("%Y%m01")):
+                    if close:
+                        cache["taiex"][day] = close
+            except Exception as e:  # noqa: BLE001
+                log("    FMTQIK 보강 실패", mm, e)
     # 장중(14:00 전)에 돌면 오늘 값은 아직 확정이 아니라서 빼요
     if now.hour < 14 and today in cache["taiex"]:
         cache["taiex"].pop(today)
