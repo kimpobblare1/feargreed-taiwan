@@ -1,0 +1,66 @@
+# 대만 공포탐욕지수: 데이터 업데이트 + 사이트 빌드 + 배포
+name: update-and-build
+
+on:
+  schedule:
+    # 시간은 UTC 기준 (대만 시간 = UTC+8)
+    - cron: "40 7 * * 1-5"    # 대만 15:40  장 마감 후 (지수·외국인·풋콜)
+    - cron: "40 13 * * 1-5"   # 대만 21:40  융자 잔액 등 늦게 나오는 데이터
+    - cron: "37 22 * * 1-5"   # 대만 06:37  미국 CNN 마감 값
+    - cron: "13 1 * * 1-5"    # 대만 09:13  일본·한국 사이트 값 반영
+  push:
+    branches: [main]
+    paths: ["content/**", "tools/**", "static/**", "config.py", "scripts/**"]
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: "TWSE 일별 데이터 채울 일수 (처음 한 번만 320)"
+        default: "12"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: 데이터 업데이트 (글만 올린 push 때는 건너뜀)
+        if: github.event_name != 'push'
+        env:
+          BACKFILL_DAYS: ${{ github.event.inputs.backfill || '12' }}
+        run: python scripts/update_data.py
+
+      - name: 사이트 빌드
+        run: python tools/build_site.py
+
+      - name: 변경 내용 저장(commit)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data public
+          git diff --cached --quiet || git commit -m "data/site update $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
+          git pull --rebase --autostash || true
+          git push || echo "push 실패 (다음 실행 때 다시 시도)"
+
+      # GitHub Pages로 배포할 때만 (저장소 Settings → Variables 에 DEPLOY_GH_PAGES = true)
+      - if: vars.DEPLOY_GH_PAGES == 'true'
+        uses: actions/configure-pages@v5
+      - if: vars.DEPLOY_GH_PAGES == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - if: vars.DEPLOY_GH_PAGES == 'true'
+        uses: actions/deploy-pages@v4
