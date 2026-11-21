@@ -83,9 +83,9 @@ def build_index(d, posts):
   <div class="score-wrap">
     {gauge}
     <div class="score-num">{score}</div>
-    <span class="score-label" style="background:{zc}">{zn}</span>
+    <span class="score-label" style="background:{zc};color:{ztxt}">{zn}</span>
   </div>
-</section>""".format(zc=zc, zn=zn, close=fmt_num(tx.get("close", 0)), chg=chg,
+</section>""".format(zc=zc, zn=zn, ztxt="#1B2A3A" if zn == "中性" else "#fff", close=fmt_num(tx.get("close", 0)), chg=chg,
                      c1=diff_html(tw["score"], tw.get("previous_close"), "前一交易日"),
                      c2=diff_html(tw["score"], tw.get("previous_1_week"), "一週前"),
                      c3=diff_html(tw["score"], tw.get("previous_1_month"), "一個月前"),
