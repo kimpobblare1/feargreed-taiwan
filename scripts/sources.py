@@ -250,7 +250,38 @@ def _dig(obj, path):
     return obj
 
 
+def _kr_comments(html):
+    """한국 사이트 index.html 의 COMMENTS 배열에서 (날짜, 한국 점수)를 최신순으로 뽑기"""
+    i = html.find("COMMENTS = [")
+    if i < 0:
+        raise LookupError("COMMENTS 목록을 찾지 못했어요")
+    out = []
+    for m in re.finditer(r"date:\s*'(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일[^']*'.*?kr:\s*\{\s*score:\s*(\d+)", html[i:i + 200000], re.S):
+        y, mo, d, sc = (int(x) for x in m.groups())
+        out.append((date(y, mo, d).isoformat(), sc))
+        if len(out) >= 2:
+            break
+    if not out:
+        raise LookupError("COMMENTS 안에서 한국 점수를 찾지 못했어요")
+    return out
+
+
 def sister_site(cfg):
+    """API(JSON)를 먼저 쓰고, 실패하면 시황 코멘트 점수로 대체"""
+    try:
+        return _sister_site(cfg)
+    except Exception:
+        if cfg.get("json") and cfg.get("html_comments"):
+            return _sister_site({k: v for k, v in cfg.items() if k != "json"})
+        raise
+
+
+def _sister_site(cfg):
+    if cfg.get("html_comments") and not cfg.get("json"):
+        # 한국 사이트 정적 페이지의 시황 코멘트 점수 (API가 없을 때만 사용)
+        rows = _kr_comments(_get(cfg["html_comments"]).text)
+        return {"score": rows[0][1], "previous_close": rows[1][1] if len(rows) > 1 else None,
+                "as_of": rows[0][0], "url": cfg.get("url", ""), "_raw": {}}
     if not cfg.get("json"):
         raise LookupError("JSON 주소가 설정되지 않았어요")
     j = _get(cfg["json"]).json()
