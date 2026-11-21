@@ -22,6 +22,24 @@ import pages  # noqa: E402
 import posts as P  # noqa: E402
 import svg  # noqa: E402
 
+try:
+    import og_image  # 썸네일 자동 생성 (Pillow 필요)
+except Exception as _e:  # noqa: BLE001
+    og_image = None
+    print("  ⚠ 썸네일 자동 생성 끔 (Pillow 없음): %s" % _e)
+
+
+def make_og(rel, score, as_of, others):
+    """public/<rel> 에 썸네일을 만들고 '/<rel>' 주소를 돌려줘요. 실패하면 기본 썸네일."""
+    if og_image is None or score is None:
+        return "/assets/og.png"
+    try:
+        og_image.make(os.path.join(OUT, rel), score, as_of, others)
+        return "/" + rel
+    except Exception as e:  # noqa: BLE001
+        print("  ⚠ 썸네일 생성 실패(%s): %s" % (rel, e))
+        return "/assets/og.png"
+
 OUT = os.path.join(ROOT, "public")
 DATA = os.path.join(ROOT, "data", "latest.json")
 MIN_CHARS = {"daily": 1200, "insight": 2500}   # 공백 제외 최소 글자 수
@@ -164,7 +182,11 @@ def build_index(d, daily, insights):
     desc = C.HOME_DESCRIPTION
     if tw:
         desc = "今日台股恐懼貪婪指數 %d（%s）。" % (tw["score"], svg.zone_of(tw["score"])[0]) + desc
-    return L.page("/", C.HOME_TITLE, desc, body, jsonld=jsonld, active="/")
+    og = "/assets/og.png"
+    if tw:
+        og = make_og("og/tw-%s.png" % tw["as_of"].replace("-", ""), tw["score"], tw["as_of"],
+                     [(n, (d.get(k) or {}).get("score")) for n, k in (("美股", "us"), ("日股", "jp"), ("韓股", "kr"))])
+    return L.page("/", C.HOME_TITLE, desc, body, jsonld=jsonld, active="/", og_image=og)
 
 
 def post_card(p):
@@ -244,7 +266,11 @@ def build_post(p, prev, nxt):
             {"@type": "ListItem", "position": 2, "name": sec_name, "item": C.SITE_URL + sec_path},
             {"@type": "ListItem", "position": 3, "name": p.TITLE, "item": L.url(p.PATH)}]},
     ]
-    write(p.PATH.lstrip("/") + ".html", L.page(p.PATH, p.META_TITLE, p.DESCRIPTION, html, og_type="article", jsonld=jsonld, active=sec_path))
+    og = "/assets/og.png"
+    if p.KIND == "daily" and p.TW_SCORE is not None:
+        og = make_og("og/post-%s.png" % p.SLUG, p.TW_SCORE, p.DATE_ISO, [("美股", p.US_SCORE), ("日股", p.JP_SCORE), ("韓股", p.KR_SCORE)])
+    jsonld[0]["image"] = C.SITE_URL + og
+    write(p.PATH.lstrip("/") + ".html", L.page(p.PATH, p.META_TITLE, p.DESCRIPTION, html, og_type="article", jsonld=jsonld, active=sec_path, og_image=og))
     return n
 
 
