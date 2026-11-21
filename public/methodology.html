@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>計算方法｜台股恐懼貪婪指數</title>
+<meta name="description" content="台股恐懼貪婪指數的七項指標、權重、資料來源與計算方式完整公開。">
+<link rel="canonical" href="https://feargreedtaiwan.com/methodology">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="台股恐懼貪婪指數">
+<meta property="og:title" content="計算方法｜台股恐懼貪婪指數">
+<meta property="og:description" content="台股恐懼貪婪指數的七項指標、權重、資料來源與計算方式完整公開。">
+<meta property="og:url" content="https://feargreedtaiwan.com/methodology">
+<meta property="og:image" content="https://feargreedtaiwan.com/assets/og.png">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#163A5F">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="台股恐懼貪婪指數" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=1">
+
+</head>
+<body>
+<a class="skip" href="#main">跳至主要內容</a>
+<header class="site-header">
+  <div class="wrap hdr">
+    <a class="brand" href="/" aria-label="台股恐懼貪婪指數 首頁">
+      <img src="/assets/favicon.svg" width="34" height="34" alt="">
+      <span><b>台股恐懼貪婪指數</b><small>Fear &amp; Greed Taiwan</small></span>
+    </a>
+    <button class="menu-btn" aria-label="選單" aria-expanded="false" onclick="var n=document.querySelector('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰</button>
+    <nav class="nav"><a href="/">首頁</a><a href="/blog/">市場日報</a><a href="/methodology" aria-current="page">計算方法</a><a href="/guide">新手指南</a><a href="/about">關於我們</a></nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="article">
+<p class="crumb"><a href="/">首頁</a> › 計算方法</p>
+<h1>台股恐懼貪婪指數的計算方法</h1>
+<p>本站參考 CNN「Fear &amp; Greed Index」的設計概念，改用<b>台灣市場的公開資料</b>，將市場情緒整理成 0 到 100 的分數。分數越低代表越恐懼，越高代表越貪婪。以下完整公開計算方式，讓每一位讀者都能檢視數字的由來。</p>
+
+<h2>一、七項指標與權重</h2>
+<div class="tbl"><table><thead><tr><th>指標</th><th>權重</th><th>看什麼</th></tr></thead><tbody><tr><td><b>市場動能</b></td><td>20%</td><td>加權指數與125日均線的乖離率。高於均線越多越貪婪。</td></tr><tr><td><b>市場波動</b></td><td>15%</td><td>加權指數近20日的年化波動率。波動越大越恐懼。</td></tr><tr><td><b>漲跌家數</b></td><td>15%</td><td>上市股票近10日上漲與下跌家數的淨比率。上漲家數越多越貪婪。</td></tr><tr><td><b>融資餘額</b></td><td>15%</td><td>上市融資餘額的20日變化率。散戶加碼槓桿代表貪婪。</td></tr><tr><td><b>外資動向</b></td><td>15%</td><td>外資近20個交易日累計買賣超。持續買超代表貪婪。</td></tr><tr><td><b>選擇權避險</b></td><td>10%</td><td>台指選擇權賣權/買權成交量比（5日平均）。避險需求越高越恐懼。</td></tr><tr><td><b>新台幣匯率</b></td><td>10%</td><td>美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。</td></tr></tbody></table></div>
+
+<h2>二、分數怎麼算</h2>
+<ol>
+<li><b>每項指標換算成 0–100 分</b>：把當天的數值放進「過去一年（約 252 個交易日）」的分布裡，看它排在第幾百分位。例如融資餘額變化率高於過去一年 80% 的日子，就得到 80 分。</li>
+<li><b>方向一致</b>：波動率、Put/Call 比、美元兌新台幣這三項是「越高越恐懼」，因此以 100 減去百分位。</li>
+<li><b>加權平均</b>：七項分數依上表權重平均。若某項資料當天無法取得，該項暫不計入，其餘指標依比例重新分配權重，並在首頁標示。</li>
+<li><b>三日平滑</b>：為避免單日雜訊，首頁顯示的是最近三個交易日的平均分數。</li>
+</ol>
+
+<h2>三、分數區間</h2>
+<div class="tbl"><table><thead><tr><th>區間</th><th>分數</th><th>代表的市場氣氛</th></tr></thead><tbody><tr><td><span class="zone-dot" style="background:#2F5C9A"></span>極度恐懼</td><td>0–24</td><td>市場充滿悲觀，賣壓沉重。歷史上常出現在急跌之後。</td></tr><tr><td><span class="zone-dot" style="background:#6E9FD3"></span>恐懼</td><td>25–44</td><td>投資人偏向保守，資金觀望。</td></tr><tr><td><span class="zone-dot" style="background:#9AA5B1"></span>中性</td><td>45–55</td><td>多空情緒大致平衡。</td></tr><tr><td><span class="zone-dot" style="background:#F0A04B"></span>貪婪</td><td>56–75</td><td>投資人偏向積極，追價意願提高。</td></tr><tr><td><span class="zone-dot" style="background:#E0623D"></span>極度貪婪</td><td>76–100</td><td>市場過熱，需留意追高與修正風險。</td></tr></tbody></table></div>
+
+<h2>四、資料來源與更新時間</h2>
+<div class="tbl"><table><thead><tr><th>資料</th><th>來源</th></tr></thead><tbody>
+<tr><td>加權指數收盤價</td><td>Yahoo Finance（^TWII），備援：臺灣證券交易所</td></tr>
+<tr><td>上漲／下跌家數、融資餘額、外資買賣超</td><td>臺灣證券交易所 盤後資訊</td></tr>
+<tr><td>台指選擇權 Put/Call 比</td><td>臺灣期貨交易所</td></tr>
+<tr><td>美元兌新台幣</td><td>Yahoo Finance（TWD=X）</td></tr>
+<tr><td>美股恐懼貪婪指數</td><td>CNN Business（原始數值，本站未加工）</td></tr>
+</tbody></table></div>
+<p>台股收盤後（約 15:40）與晚間（約 21:40）各更新一次；美股指數於台灣時間清晨更新。遇國定假日或颱風休市則不更新。</p>
+
+<h2>五、使用限制</h2>
+<ul>
+<li>本指數描述的是「目前的市場情緒」，並非預測未來漲跌的模型。</li>
+<li>台股恐懼貪婪指數與 CNN 美股指數、日本與韓國指數的計算方式不同，<b>不宜直接比較數字高低</b>，比較「方向」與「變化」較有意義。</li>
+<li>官方資料偶有修正，本站會依最新資料重新計算，因此過去的分數可能出現 1–2 分的差異。</li>
+</ul>
+<p class="disclaimer">本站內容僅供資訊參考，不構成任何投資建議。投資前請審慎評估自身風險承受度。</p>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <p class="foot-brand">台股恐懼貪婪指數<span> · Fear &amp; Greed Taiwan</span></p>
+      <p class="muted">本站內容僅供資訊參考，不構成任何投資建議或買賣邀約。投資有風險，請自行判斷並承擔責任。</p>
+      <p class="muted small">資料來源：臺灣證券交易所、臺灣期貨交易所、Yahoo Finance、CNN Business。指數由本站依公開資料自行計算。</p>
+    </div>
+    <div class="foot-links">
+      <a href="/about">關於我們</a><a href="/methodology">計算方法</a><a href="/privacy">隱私權政策</a>
+      <a href="/terms">使用條款與免責聲明</a><a href="/contact">聯絡我們</a><a href="/feed.xml">RSS</a>
+    </div>
+    <div class="foot-links">
+      <span class="muted small">姊妹站</span>
+      <a href="https://feargreedjapan.com" rel="noopener" target="_blank">日本 Fear &amp; Greed</a>
+      <a href="https://edition.cnn.com/markets/fear-and-greed" rel="noopener" target="_blank">CNN 美股恐懼貪婪指數</a>
+    </div>
+  </div>
+  <p class="wrap copy small muted">© 2026 Fear &amp; Greed Taiwan 編輯部</p>
+</footer>
+</body>
+</html>

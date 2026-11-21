@@ -1,0 +1,1933 @@
+{
+ "success": true,
+ "tw": {
+  "score": 15,
+  "label": "極度恐懼",
+  "previous_close": 13,
+  "previous_1_week": 12,
+  "previous_1_month": 32,
+  "as_of": "2026-11-19",
+  "indicators": [
+   {
+    "key": "momentum",
+    "name": "市場動能",
+    "weight": 0.2,
+    "value": 1,
+    "raw": -15.03,
+    "unit": "%",
+    "desc": "加權指數與125日均線的乖離率。高於均線越多越貪婪。",
+    "low": -15.03,
+    "high": 36.65,
+    "median": 16.19,
+    "n": 206
+   },
+   {
+    "key": "volatility",
+    "name": "市場波動",
+    "weight": 0.15,
+    "value": 4,
+    "raw": 46.34,
+    "unit": "%",
+    "desc": "加權指數近20日的年化波動率。波動越大越恐懼。",
+    "low": 12.78,
+    "high": 49.5,
+    "median": 24.79,
+    "n": 252
+   },
+   {
+    "key": "breadth",
+    "name": "漲跌家數",
+    "weight": 0.15,
+    "value": 9,
+    "raw": -20.43,
+    "unit": "%",
+    "desc": "上市股票近10日上漲與下跌家數的淨比率。上漲家數越多越貪婪。",
+    "low": -38.74,
+    "high": 21.34,
+    "median": -4.85,
+    "n": 252
+   },
+   {
+    "key": "margin",
+    "name": "融資餘額",
+    "weight": 0.15,
+    "value": 0,
+    "raw": -24.09,
+    "unit": "%",
+    "desc": "上市融資餘額的20日變化率。散戶加碼槓桿代表貪婪。",
+    "low": -24.09,
+    "high": 23.35,
+    "median": 7.72,
+    "n": 252
+   },
+   {
+    "key": "foreign",
+    "name": "外資動向",
+    "weight": 0.15,
+    "value": 5,
+    "raw": -10830.3,
+    "unit": "億元",
+    "desc": "外資近20個交易日累計買賣超。持續買超代表貪婪。",
+    "low": -16855.03,
+    "high": 4084.48,
+    "median": -1492.98,
+    "n": 252
+   },
+   {
+    "key": "pcr",
+    "name": "選擇權避險",
+    "weight": 0.1,
+    "value": 96,
+    "raw": 84.79,
+    "unit": "%",
+    "desc": "台指選擇權賣權/買權成交量比（5日平均）。避險需求越高越恐懼。",
+    "low": 78.66,
+    "high": 122.81,
+    "median": 103.85,
+    "n": 230
+   },
+   {
+    "key": "fx",
+    "name": "新台幣匯率",
+    "weight": 0.1,
+    "value": 27,
+    "raw": 1.08,
+    "unit": "%",
+    "desc": "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。",
+    "low": -2.29,
+    "high": 4.19,
+    "median": 0.52,
+    "n": 252
+   }
+  ],
+  "missing": [],
+  "stale": false,
+  "taiex": {
+   "close": 38426.89,
+   "change": -1768.02,
+   "change_pct": -4.4
+  }
+ },
+ "us": {
+  "score": 10,
+  "previous_close": 19,
+  "previous_1_week": 37,
+  "previous_1_month": 29,
+  "as_of": "2026-11-20",
+  "url": "https://edition.cnn.com/markets/fear-and-greed",
+  "stale": false,
+  "label": "極度恐懼"
+ },
+ "jp": {
+  "score": 15,
+  "previous_close": 16,
+  "as_of": "2026-11-20",
+  "url": "https://feargreedjapan.com",
+  "stale": false,
+  "label": "極度恐懼"
+ },
+ "kr": null,
+ "history": [
+  {
+   "date": "2026-05-13",
+   "tw": 70,
+   "taiex": 41374.5,
+   "parts": {
+    "momentum": 90,
+    "volatility": 33,
+    "breadth": 42,
+    "margin": 95,
+    "foreign": 80,
+    "pcr": 4,
+    "fx": 68
+   }
+  },
+  {
+   "date": "2026-05-14",
+   "tw": 65,
+   "taiex": 41751.75,
+   "parts": {
+    "momentum": 92,
+    "volatility": 33,
+    "breadth": 26,
+    "margin": 95,
+    "foreign": 77,
+    "pcr": 4,
+    "fx": 73
+   }
+  },
+  {
+   "date": "2026-05-15",
+   "tw": 60,
+   "taiex": 41172.36,
+   "parts": {
+    "momentum": 87,
+    "volatility": 31,
+    "breadth": 21,
+    "margin": 93,
+    "foreign": 68,
+    "pcr": 5,
+    "fx": 70
+   }
+  },
+  {
+   "date": "2026-05-18",
+   "tw": 58,
+   "taiex": 40891.82,
+   "parts": {
+    "momentum": 81,
+    "volatility": 32,
+    "breadth": 15,
+    "margin": 94,
+    "foreign": 62,
+    "pcr": 15,
+    "fx": 70
+   }
+  },
+  {
+   "date": "2026-05-19",
+   "tw": 53,
+   "taiex": 40175.56,
+   "parts": {
+    "momentum": 75,
+    "volatility": 24,
+    "breadth": 7,
+    "margin": 92,
+    "foreign": 39,
+    "pcr": 33,
+    "fx": 42
+   }
+  },
+  {
+   "date": "2026-05-20",
+   "tw": 49,
+   "taiex": 40020.82,
+   "parts": {
+    "momentum": 71,
+    "volatility": 24,
+    "breadth": 7,
+    "margin": 92,
+    "foreign": 26,
+    "pcr": 39,
+    "fx": 58
+   }
+  },
+  {
+   "date": "2026-05-21",
+   "tw": 48,
+   "taiex": 41368.21,
+   "parts": {
+    "momentum": 84,
+    "volatility": 22,
+    "breadth": 15,
+    "margin": 92,
+    "foreign": 32,
+    "pcr": 28,
+    "fx": 63
+   }
+  },
+  {
+   "date": "2026-05-22",
+   "tw": 51,
+   "taiex": 42267.97,
+   "parts": {
+    "momentum": 89,
+    "volatility": 21,
+    "breadth": 33,
+    "margin": 98,
+    "foreign": 47,
+    "pcr": 27,
+    "fx": 69
+   }
+  },
+  {
+   "date": "2026-05-25",
+   "tw": 55,
+   "taiex": 43644.4,
+   "parts": {
+    "momentum": 98,
+    "volatility": 21,
+    "breadth": 33,
+    "margin": 95,
+    "foreign": 48,
+    "pcr": 6,
+    "fx": 78
+   }
+  },
+  {
+   "date": "2026-05-26",
+   "tw": 59,
+   "taiex": 43525.37,
+   "parts": {
+    "momentum": 97,
+    "volatility": 23,
+    "breadth": 45,
+    "margin": 93,
+    "foreign": 70,
+    "pcr": 4,
+    "fx": 71
+   }
+  },
+  {
+   "date": "2026-05-27",
+   "tw": 61,
+   "taiex": 44256.8,
+   "parts": {
+    "momentum": 99,
+    "volatility": 21,
+    "breadth": 45,
+    "margin": 91,
+    "foreign": 80,
+    "pcr": 2,
+    "fx": 74
+   }
+  },
+  {
+   "date": "2026-05-28",
+   "tw": 63,
+   "taiex": 43636.44,
+   "parts": {
+    "momentum": 92,
+    "volatility": 21,
+    "breadth": 53,
+    "margin": 89,
+    "foreign": 81,
+    "pcr": 11,
+    "fx": 84
+   }
+  },
+  {
+   "date": "2026-05-29",
+   "tw": 67,
+   "taiex": 44732.94,
+   "parts": {
+    "momentum": 99,
+    "volatility": 20,
+    "breadth": 89,
+    "margin": 96,
+    "foreign": 95,
+    "pcr": 6,
+    "fx": 80
+   }
+  },
+  {
+   "date": "2026-06-01",
+   "tw": 71,
+   "taiex": 45337.91,
+   "parts": {
+    "momentum": 99,
+    "volatility": 28,
+    "breadth": 94,
+    "margin": 94,
+    "foreign": 88,
+    "pcr": 13,
+    "fx": 87
+   }
+  },
+  {
+   "date": "2026-06-02",
+   "tw": 75,
+   "taiex": 45557.31,
+   "parts": {
+    "momentum": 100,
+    "volatility": 28,
+    "breadth": 96,
+    "margin": 93,
+    "foreign": 91,
+    "pcr": 15,
+    "fx": 75
+   }
+  },
+  {
+   "date": "2026-06-03",
+   "tw": 74,
+   "taiex": 46459.16,
+   "parts": {
+    "momentum": 100,
+    "volatility": 26,
+    "breadth": 99,
+    "margin": 93,
+    "foreign": 84,
+    "pcr": 10,
+    "fx": 56
+   }
+  },
+  {
+   "date": "2026-06-04",
+   "tw": 72,
+   "taiex": 45677.46,
+   "parts": {
+    "momentum": 96,
+    "volatility": 25,
+    "breadth": 92,
+    "margin": 91,
+    "foreign": 74,
+    "pcr": 20,
+    "fx": 55
+   }
+  },
+  {
+   "date": "2026-06-05",
+   "tw": 70,
+   "taiex": 45070.94,
+   "parts": {
+    "momentum": 91,
+    "volatility": 24,
+    "breadth": 85,
+    "margin": 91,
+    "foreign": 63,
+    "pcr": 47,
+    "fx": 54
+   }
+  },
+  {
+   "date": "2026-06-08",
+   "tw": 65,
+   "taiex": 43502.78,
+   "parts": {
+    "momentum": 75,
+    "volatility": 18,
+    "breadth": 55,
+    "margin": 84,
+    "foreign": 38,
+    "pcr": 84,
+    "fx": 46
+   }
+  },
+  {
+   "date": "2026-06-09",
+   "tw": 62,
+   "taiex": 44704.44,
+   "parts": {
+    "momentum": 81,
+    "volatility": 15,
+    "breadth": 79,
+    "margin": 84,
+    "foreign": 30,
+    "pcr": 74,
+    "fx": 66
+   }
+  },
+  {
+   "date": "2026-06-10",
+   "tw": 58,
+   "taiex": 43225.54,
+   "parts": {
+    "momentum": 68,
+    "volatility": 11,
+    "breadth": 74,
+    "margin": 74,
+    "foreign": 24,
+    "pcr": 82,
+    "fx": 60
+   }
+  },
+  {
+   "date": "2026-06-11",
+   "tw": 56,
+   "taiex": 43149.46,
+   "parts": {
+    "momentum": 64,
+    "volatility": 12,
+    "breadth": 76,
+    "margin": 70,
+    "foreign": 21,
+    "pcr": 62,
+    "fx": 68
+   }
+  },
+  {
+   "date": "2026-06-12",
+   "tw": 55,
+   "taiex": 44169.04,
+   "parts": {
+    "momentum": 75,
+    "volatility": 11,
+    "breadth": 76,
+    "margin": 83,
+    "foreign": 24,
+    "pcr": 52,
+    "fx": 68
+   }
+  },
+  {
+   "date": "2026-06-15",
+   "tw": 55,
+   "taiex": 45396.99,
+   "parts": {
+    "momentum": 82,
+    "volatility": 10,
+    "breadth": 74,
+    "margin": 84,
+    "foreign": 36,
+    "pcr": 11,
+    "fx": 73
+   }
+  },
+  {
+   "date": "2026-06-16",
+   "tw": 57,
+   "taiex": 45809.19,
+   "parts": {
+    "momentum": 85,
+    "volatility": 12,
+    "breadth": 62,
+    "margin": 85,
+    "foreign": 64,
+    "pcr": 6,
+    "fx": 82
+   }
+  },
+  {
+   "date": "2026-06-17",
+   "tw": 58,
+   "taiex": 45877.39,
+   "parts": {
+    "momentum": 84,
+    "volatility": 14,
+    "breadth": 58,
+    "margin": 88,
+    "foreign": 69,
+    "pcr": 6,
+    "fx": 63
+   }
+  },
+  {
+   "date": "2026-06-18",
+   "tw": 59,
+   "taiex": 46465.2,
+   "parts": {
+    "momentum": 89,
+    "volatility": 18,
+    "breadth": 69,
+    "margin": 86,
+    "foreign": 61,
+    "pcr": 4,
+    "fx": 59
+   }
+  },
+  {
+   "date": "2026-06-22",
+   "tw": 59,
+   "taiex": 47741.51,
+   "parts": {
+    "momentum": 97,
+    "volatility": 17,
+    "breadth": 83,
+    "margin": 85,
+    "foreign": 60,
+    "pcr": 0,
+    "fx": 52
+   }
+  },
+  {
+   "date": "2026-06-23",
+   "tw": 59,
+   "taiex": 47100.65,
+   "parts": {
+    "momentum": 91,
+    "volatility": 18,
+    "breadth": 88,
+    "margin": 77,
+    "foreign": 34,
+    "pcr": 16,
+    "fx": 42
+   }
+  },
+  {
+   "date": "2026-06-24",
+   "tw": 56,
+   "taiex": 46043.6,
+   "parts": {
+    "momentum": 74,
+    "volatility": 16,
+    "breadth": 74,
+    "margin": 81,
+    "foreign": 15,
+    "pcr": 51,
+    "fx": 34
+   }
+  },
+  {
+   "date": "2026-06-25",
+   "tw": 54,
+   "taiex": 46255.26,
+   "parts": {
+    "momentum": 74,
+    "volatility": 17,
+    "breadth": 84,
+    "margin": 82,
+    "foreign": 8,
+    "pcr": 64,
+    "fx": 32
+   }
+  },
+  {
+   "date": "2026-06-26",
+   "tw": 49,
+   "taiex": 44571.76,
+   "parts": {
+    "momentum": 56,
+    "volatility": 10,
+    "breadth": 57,
+    "margin": 70,
+    "foreign": 6,
+    "pcr": 88,
+    "fx": 28
+   }
+  },
+  {
+   "date": "2026-06-29",
+   "tw": 45,
+   "taiex": 44999.9,
+   "parts": {
+    "momentum": 58,
+    "volatility": 11,
+    "breadth": 45,
+    "margin": 33,
+    "foreign": 5,
+    "pcr": 95,
+    "fx": 27
+   }
+  },
+  {
+   "date": "2026-06-30",
+   "tw": 39,
+   "taiex": 46125.91,
+   "parts": {
+    "momentum": 67,
+    "volatility": 10,
+    "breadth": 49,
+    "margin": 51,
+    "foreign": 5,
+    "pcr": 38,
+    "fx": 21
+   }
+  },
+  {
+   "date": "2026-07-01",
+   "tw": 37,
+   "taiex": 47018.99,
+   "parts": {
+    "momentum": 75,
+    "volatility": 10,
+    "breadth": 58,
+    "margin": 44,
+    "foreign": 6,
+    "pcr": 19,
+    "fx": 30
+   }
+  },
+  {
+   "date": "2026-07-02",
+   "tw": 37,
+   "taiex": 46744.16,
+   "parts": {
+    "momentum": 70,
+    "volatility": 10,
+    "breadth": 57,
+    "margin": 60,
+    "foreign": 2,
+    "pcr": 17,
+    "fx": 29
+   }
+  },
+  {
+   "date": "2026-07-03",
+   "tw": 39,
+   "taiex": 46780.62,
+   "parts": {
+    "momentum": 70,
+    "volatility": 12,
+    "breadth": 75,
+    "margin": 68,
+    "foreign": 2,
+    "pcr": 11,
+    "fx": 29
+   }
+  },
+  {
+   "date": "2026-07-06",
+   "tw": 41,
+   "taiex": 46556.39,
+   "parts": {
+    "momentum": 61,
+    "volatility": 13,
+    "breadth": 77,
+    "margin": 76,
+    "foreign": 5,
+    "pcr": 28,
+    "fx": 17
+   }
+  },
+  {
+   "date": "2026-07-07",
+   "tw": 43,
+   "taiex": 45479.11,
+   "parts": {
+    "momentum": 49,
+    "volatility": 21,
+    "breadth": 68,
+    "margin": 72,
+    "foreign": 6,
+    "pcr": 88,
+    "fx": 17
+   }
+  },
+  {
+   "date": "2026-07-08",
+   "tw": 44,
+   "taiex": 45734.41,
+   "parts": {
+    "momentum": 50,
+    "volatility": 23,
+    "breadth": 60,
+    "margin": 56,
+    "foreign": 8,
+    "pcr": 100,
+    "fx": 17
+   }
+  },
+  {
+   "date": "2026-07-09",
+   "tw": 46,
+   "taiex": 45354.61,
+   "parts": {
+    "momentum": 43,
+    "volatility": 28,
+    "breadth": 62,
+    "margin": 81,
+    "foreign": 9,
+    "pcr": 98,
+    "fx": 28
+   }
+  },
+  {
+   "date": "2026-07-13",
+   "tw": 47,
+   "taiex": 45380.52,
+   "parts": {
+    "momentum": 42,
+    "volatility": 29,
+    "breadth": 84,
+    "margin": 79,
+    "foreign": 9,
+    "pcr": 100,
+    "fx": 16
+   }
+  },
+  {
+   "date": "2026-07-14",
+   "tw": 45,
+   "taiex": 44737.95,
+   "parts": {
+    "momentum": 32,
+    "volatility": 29,
+    "breadth": 42,
+    "margin": 50,
+    "foreign": 7,
+    "pcr": 97,
+    "fx": 18
+   }
+  },
+  {
+   "date": "2026-07-15",
+   "tw": 41,
+   "taiex": 45631.59,
+   "parts": {
+    "momentum": 42,
+    "volatility": 33,
+    "breadth": 54,
+    "margin": 43,
+    "foreign": 6,
+    "pcr": 74,
+    "fx": 9
+   }
+  },
+  {
+   "date": "2026-07-16",
+   "tw": 37,
+   "taiex": 45624.98,
+   "parts": {
+    "momentum": 41,
+    "volatility": 33,
+    "breadth": 50,
+    "margin": 45,
+    "foreign": 2,
+    "pcr": 75,
+    "fx": 9
+   }
+  },
+  {
+   "date": "2026-07-17",
+   "tw": 29,
+   "taiex": 42671.27,
+   "parts": {
+    "momentum": 6,
+    "volatility": 8,
+    "breadth": 9,
+    "margin": 4,
+    "foreign": 0,
+    "pcr": 92,
+    "fx": 11
+   }
+  },
+  {
+   "date": "2026-07-20",
+   "tw": 21,
+   "taiex": 42449.7,
+   "parts": {
+    "momentum": 3,
+    "volatility": 10,
+    "breadth": 1,
+    "margin": 0,
+    "foreign": 0,
+    "pcr": 96,
+    "fx": 11
+   }
+  },
+  {
+   "date": "2026-07-21",
+   "tw": 13,
+   "taiex": 44232.87,
+   "parts": {
+    "momentum": 14,
+    "volatility": 0,
+    "breadth": 7,
+    "margin": 0,
+    "foreign": 0,
+    "pcr": 73,
+    "fx": 12
+   }
+  },
+  {
+   "date": "2026-07-22",
+   "tw": 14,
+   "taiex": 44825.78,
+   "parts": {
+    "momentum": 22,
+    "volatility": 0,
+    "breadth": 25,
+    "margin": 2,
+    "foreign": 1,
+    "pcr": 82,
+    "fx": 9
+   }
+  },
+  {
+   "date": "2026-07-23",
+   "tw": 16,
+   "taiex": 44850.81,
+   "parts": {
+    "momentum": 19,
+    "volatility": 3,
+    "breadth": 24,
+    "margin": 1,
+    "foreign": 4,
+    "pcr": 65,
+    "fx": 26
+   }
+  },
+  {
+   "date": "2026-07-24",
+   "tw": 16,
+   "taiex": 43654.84,
+   "parts": {
+    "momentum": 9,
+    "volatility": 0,
+    "breadth": 18,
+    "margin": 0,
+    "foreign": 3,
+    "pcr": 50,
+    "fx": 33
+   }
+  },
+  {
+   "date": "2026-07-27",
+   "tw": 16,
+   "taiex": 43634.19,
+   "parts": {
+    "momentum": 9,
+    "volatility": 11,
+    "breadth": 26,
+    "margin": 2,
+    "foreign": 10,
+    "pcr": 31,
+    "fx": 32
+   }
+  },
+  {
+   "date": "2026-07-28",
+   "tw": 14,
+   "taiex": 41603.36,
+   "parts": {
+    "momentum": 1,
+    "volatility": 0,
+    "breadth": 18,
+    "margin": 0,
+    "foreign": 6,
+    "pcr": 62,
+    "fx": 25
+   }
+  },
+  {
+   "date": "2026-07-29",
+   "tw": 13,
+   "taiex": 40039.18,
+   "parts": {
+    "momentum": 0,
+    "volatility": 0,
+    "breadth": 0,
+    "margin": 0,
+    "foreign": 5,
+    "pcr": 69,
+    "fx": 24
+   }
+  },
+  {
+   "date": "2026-07-30",
+   "tw": 11,
+   "taiex": 39933.3,
+   "parts": {
+    "momentum": 0,
+    "volatility": 1,
+    "breadth": 0,
+    "margin": 0,
+    "foreign": 2,
+    "pcr": 79,
+    "fx": 25
+   }
+  },
+  {
+   "date": "2026-07-31",
+   "tw": 12,
+   "taiex": 43119.75,
+   "parts": {
+    "momentum": 5,
+    "volatility": 0,
+    "breadth": 17,
+    "margin": 1,
+    "foreign": 10,
+    "pcr": 80,
+    "fx": 29
+   }
+  },
+  {
+   "date": "2026-08-03",
+   "tw": 16,
+   "taiex": 43386.41,
+   "parts": {
+    "momentum": 6,
+    "volatility": 0,
+    "breadth": 36,
+    "margin": 1,
+    "foreign": 12,
+    "pcr": 83,
+    "fx": 29
+   }
+  },
+  {
+   "date": "2026-08-04",
+   "tw": 18,
+   "taiex": 43360.66,
+   "parts": {
+    "momentum": 6,
+    "volatility": 0,
+    "breadth": 18,
+    "margin": 2,
+    "foreign": 14,
+    "pcr": 72,
+    "fx": 42
+   }
+  },
+  {
+   "date": "2026-08-05",
+   "tw": 20,
+   "taiex": 44611.6,
+   "parts": {
+    "momentum": 15,
+    "volatility": 0,
+    "breadth": 30,
+    "margin": 2,
+    "foreign": 17,
+    "pcr": 61,
+    "fx": 58
+   }
+  },
+  {
+   "date": "2026-08-06",
+   "tw": 21,
+   "taiex": 44396.7,
+   "parts": {
+    "momentum": 13,
+    "volatility": 1,
+    "breadth": 43,
+    "margin": 3,
+    "foreign": 18,
+    "pcr": 44,
+    "fx": 63
+   }
+  },
+  {
+   "date": "2026-08-07",
+   "tw": 23,
+   "taiex": 44225.91,
+   "parts": {
+    "momentum": 11,
+    "volatility": 1,
+    "breadth": 57,
+    "margin": 3,
+    "foreign": 19,
+    "pcr": 41,
+    "fx": 60
+   }
+  },
+  {
+   "date": "2026-08-10",
+   "tw": 26,
+   "taiex": 44928.76,
+   "parts": {
+    "momentum": 16,
+    "volatility": 0,
+    "breadth": 82,
+    "margin": 4,
+    "foreign": 25,
+    "pcr": 29,
+    "fx": 67
+   }
+  },
+  {
+   "date": "2026-08-11",
+   "tw": 28,
+   "taiex": 45120.72,
+   "parts": {
+    "momentum": 18,
+    "volatility": 1,
+    "breadth": 92,
+    "margin": 4,
+    "foreign": 30,
+    "pcr": 25,
+    "fx": 66
+   }
+  },
+  {
+   "date": "2026-08-12",
+   "tw": 32,
+   "taiex": 45518.07,
+   "parts": {
+    "momentum": 19,
+    "volatility": 2,
+    "breadth": 98,
+    "margin": 4,
+    "foreign": 31,
+    "pcr": 26,
+    "fx": 74
+   }
+  },
+  {
+   "date": "2026-08-13",
+   "tw": 34,
+   "taiex": 46021.48,
+   "parts": {
+    "momentum": 21,
+    "volatility": 2,
+    "breadth": 100,
+    "margin": 4,
+    "foreign": 44,
+    "pcr": 27,
+    "fx": 82
+   }
+  },
+  {
+   "date": "2026-08-14",
+   "tw": 38,
+   "taiex": 45811.01,
+   "parts": {
+    "momentum": 19,
+    "volatility": 4,
+    "breadth": 91,
+    "margin": 6,
+    "foreign": 84,
+    "pcr": 26,
+    "fx": 82
+   }
+  },
+  {
+   "date": "2026-08-17",
+   "tw": 41,
+   "taiex": 45857.27,
+   "parts": {
+    "momentum": 18,
+    "volatility": 5,
+    "breadth": 90,
+    "margin": 9,
+    "foreign": 87,
+    "pcr": 19,
+    "fx": 97
+   }
+  },
+  {
+   "date": "2026-08-18",
+   "tw": 42,
+   "taiex": 45308.68,
+   "parts": {
+    "momentum": 12,
+    "volatility": 5,
+    "breadth": 71,
+    "margin": 6,
+    "foreign": 86,
+    "pcr": 22,
+    "fx": 98
+   }
+  },
+  {
+   "date": "2026-08-19",
+   "tw": 39,
+   "taiex": 44719.35,
+   "parts": {
+    "momentum": 6,
+    "volatility": 5,
+    "breadth": 42,
+    "margin": 6,
+    "foreign": 81,
+    "pcr": 17,
+    "fx": 99
+   }
+  },
+  {
+   "date": "2026-08-20",
+   "tw": 36,
+   "taiex": 44933.74,
+   "parts": {
+    "momentum": 7,
+    "volatility": 5,
+    "breadth": 64,
+    "margin": 6,
+    "foreign": 81,
+    "pcr": 14,
+    "fx": 97
+   }
+  },
+  {
+   "date": "2026-08-21",
+   "tw": 36,
+   "taiex": 45224.29,
+   "parts": {
+    "momentum": 9,
+    "volatility": 7,
+    "breadth": 73,
+    "margin": 7,
+    "foreign": 87,
+    "pcr": 9,
+    "fx": 97
+   }
+  },
+  {
+   "date": "2026-08-24",
+   "tw": 36,
+   "taiex": 44762.32,
+   "parts": {
+    "momentum": 4,
+    "volatility": 6,
+    "breadth": 35,
+    "margin": 8,
+    "foreign": 86,
+    "pcr": 24,
+    "fx": 98
+   }
+  },
+  {
+   "date": "2026-08-25",
+   "tw": 37,
+   "taiex": 45169.46,
+   "parts": {
+    "momentum": 7,
+    "volatility": 20,
+    "breadth": 40,
+    "margin": 14,
+    "foreign": 96,
+    "pcr": 21,
+    "fx": 98
+   }
+  },
+  {
+   "date": "2026-08-26",
+   "tw": 42,
+   "taiex": 45832.62,
+   "parts": {
+    "momentum": 15,
+    "volatility": 32,
+    "breadth": 58,
+    "margin": 66,
+    "foreign": 99,
+    "pcr": 24,
+    "fx": 98
+   }
+  },
+  {
+   "date": "2026-08-27",
+   "tw": 50,
+   "taiex": 45975.22,
+   "parts": {
+    "momentum": 16,
+    "volatility": 33,
+    "breadth": 64,
+    "margin": 84,
+    "foreign": 99,
+    "pcr": 16,
+    "fx": 100
+   }
+  },
+  {
+   "date": "2026-08-28",
+   "tw": 58,
+   "taiex": 46331.45,
+   "parts": {
+    "momentum": 19,
+    "volatility": 79,
+    "breadth": 70,
+    "margin": 79,
+    "foreign": 99,
+    "pcr": 24,
+    "fx": 100
+   }
+  },
+  {
+   "date": "2026-08-31",
+   "tw": 60,
+   "taiex": 46128.47,
+   "parts": {
+    "momentum": 15,
+    "volatility": 76,
+    "breadth": 51,
+    "margin": 74,
+    "foreign": 99,
+    "pcr": 14,
+    "fx": 99
+   }
+  },
+  {
+   "date": "2026-09-01",
+   "tw": 63,
+   "taiex": 46948.72,
+   "parts": {
+    "momentum": 24,
+    "volatility": 73,
+    "breadth": 84,
+    "margin": 75,
+    "foreign": 100,
+    "pcr": 12,
+    "fx": 99
+   }
+  },
+  {
+   "date": "2026-09-02",
+   "tw": 64,
+   "taiex": 46164.72,
+   "parts": {
+    "momentum": 11,
+    "volatility": 82,
+    "breadth": 86,
+    "margin": 79,
+    "foreign": 92,
+    "pcr": 33,
+    "fx": 96
+   }
+  },
+  {
+   "date": "2026-09-03",
+   "tw": 62,
+   "taiex": 45857.66,
+   "parts": {
+    "momentum": 6,
+    "volatility": 81,
+    "breadth": 38,
+    "margin": 57,
+    "foreign": 84,
+    "pcr": 55,
+    "fx": 95
+   }
+  },
+  {
+   "date": "2026-09-04",
+   "tw": 61,
+   "taiex": 46551.13,
+   "parts": {
+    "momentum": 15,
+    "volatility": 76,
+    "breadth": 55,
+    "margin": 54,
+    "foreign": 96,
+    "pcr": 60,
+    "fx": 95
+   }
+  },
+  {
+   "date": "2026-09-07",
+   "tw": 60,
+   "taiex": 47326.27,
+   "parts": {
+    "momentum": 24,
+    "volatility": 75,
+    "breadth": 64,
+    "margin": 51,
+    "foreign": 97,
+    "pcr": 52,
+    "fx": 99
+   }
+  },
+  {
+   "date": "2026-09-08",
+   "tw": 61,
+   "taiex": 47105.78,
+   "parts": {
+    "momentum": 20,
+    "volatility": 73,
+    "breadth": 50,
+    "margin": 49,
+    "foreign": 97,
+    "pcr": 62,
+    "fx": 98
+   }
+  },
+  {
+   "date": "2026-09-09",
+   "tw": 59,
+   "taiex": 47183.36,
+   "parts": {
+    "momentum": 20,
+    "volatility": 74,
+    "breadth": 32,
+    "margin": 43,
+    "foreign": 97,
+    "pcr": 35,
+    "fx": 100
+   }
+  },
+  {
+   "date": "2026-09-10",
+   "tw": 55,
+   "taiex": 46940.49,
+   "parts": {
+    "momentum": 13,
+    "volatility": 76,
+    "breadth": 14,
+    "margin": 49,
+    "foreign": 85,
+    "pcr": 40,
+    "fx": 93
+   }
+  },
+  {
+   "date": "2026-09-11",
+   "tw": 49,
+   "taiex": 46184.85,
+   "parts": {
+    "momentum": 3,
+    "volatility": 69,
+    "breadth": 8,
+    "margin": 47,
+    "foreign": 74,
+    "pcr": 48,
+    "fx": 93
+   }
+  },
+  {
+   "date": "2026-09-14",
+   "tw": 45,
+   "taiex": 45862.52,
+   "parts": {
+    "momentum": 3,
+    "volatility": 68,
+    "breadth": 8,
+    "margin": 32,
+    "foreign": 63,
+    "pcr": 66,
+    "fx": 74
+   }
+  },
+  {
+   "date": "2026-09-15",
+   "tw": 41,
+   "taiex": 45511.49,
+   "parts": {
+    "momentum": 3,
+    "volatility": 70,
+    "breadth": 1,
+    "margin": 36,
+    "foreign": 53,
+    "pcr": 63,
+    "fx": 73
+   }
+  },
+  {
+   "date": "2026-09-16",
+   "tw": 40,
+   "taiex": 45848.9,
+   "parts": {
+    "momentum": 3,
+    "volatility": 73,
+    "breadth": 8,
+    "margin": 42,
+    "foreign": 58,
+    "pcr": 66,
+    "fx": 60
+   }
+  },
+  {
+   "date": "2026-09-17",
+   "tw": 41,
+   "taiex": 46288.0,
+   "parts": {
+    "momentum": 4,
+    "volatility": 70,
+    "breadth": 41,
+    "margin": 49,
+    "foreign": 59,
+    "pcr": 54,
+    "fx": 64
+   }
+  },
+  {
+   "date": "2026-09-18",
+   "tw": 44,
+   "taiex": 47180.75,
+   "parts": {
+    "momentum": 11,
+    "volatility": 64,
+    "breadth": 36,
+    "margin": 61,
+    "foreign": 68,
+    "pcr": 44,
+    "fx": 64
+   }
+  },
+  {
+   "date": "2026-09-21",
+   "tw": 49,
+   "taiex": 47718.84,
+   "parts": {
+    "momentum": 16,
+    "volatility": 67,
+    "breadth": 46,
+    "margin": 75,
+    "foreign": 72,
+    "fx": 71
+   }
+  },
+  {
+   "date": "2026-09-22",
+   "tw": 53,
+   "taiex": 47800.17,
+   "parts": {
+    "momentum": 14,
+    "volatility": 69,
+    "breadth": 53,
+    "margin": 74,
+    "foreign": 76,
+    "fx": 76
+   }
+  },
+  {
+   "date": "2026-09-23",
+   "tw": 55,
+   "taiex": 48157.29,
+   "parts": {
+    "momentum": 21,
+    "volatility": 70,
+    "breadth": 33,
+    "margin": 67,
+    "foreign": 76,
+    "fx": 66
+   }
+  },
+  {
+   "date": "2026-09-24",
+   "tw": 54,
+   "taiex": 48024.6,
+   "parts": {
+    "momentum": 14,
+    "volatility": 70,
+    "breadth": 46,
+    "margin": 71,
+    "foreign": 68,
+    "fx": 46
+   }
+  },
+  {
+   "date": "2026-09-29",
+   "tw": 50,
+   "taiex": 47631.96,
+   "parts": {
+    "momentum": 7,
+    "volatility": 68,
+    "breadth": 63,
+    "margin": 65,
+    "foreign": 49,
+    "fx": 43
+   }
+  },
+  {
+   "date": "2026-09-30",
+   "tw": 51,
+   "taiex": 47940.13,
+   "parts": {
+    "momentum": 10,
+    "volatility": 68,
+    "breadth": 89,
+    "margin": 66,
+    "foreign": 59,
+    "fx": 43
+   }
+  },
+  {
+   "date": "2026-10-01",
+   "tw": 52,
+   "taiex": 48353.49,
+   "parts": {
+    "momentum": 14,
+    "volatility": 75,
+    "breadth": 93,
+    "margin": 63,
+    "foreign": 57,
+    "fx": 41
+   }
+  },
+  {
+   "date": "2026-10-02",
+   "tw": 56,
+   "taiex": 48475.74,
+   "parts": {
+    "momentum": 14,
+    "volatility": 88,
+    "breadth": 87,
+    "margin": 58,
+    "foreign": 72,
+    "fx": 45
+   }
+  },
+  {
+   "date": "2026-10-05",
+   "tw": 59,
+   "taiex": 49712.04,
+   "parts": {
+    "momentum": 33,
+    "volatility": 72,
+    "breadth": 65,
+    "margin": 69,
+    "foreign": 82,
+    "fx": 58
+   }
+  },
+  {
+   "date": "2026-10-06",
+   "tw": 59,
+   "taiex": 49822.55,
+   "parts": {
+    "momentum": 32,
+    "volatility": 78,
+    "breadth": 36,
+    "margin": 70,
+    "foreign": 78,
+    "fx": 55
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "tw": 57,
+   "taiex": 49806.37,
+   "parts": {
+    "momentum": 31,
+    "volatility": 85,
+    "breadth": 47,
+    "margin": 61,
+    "foreign": 66,
+    "fx": 31
+   }
+  },
+  {
+   "date": "2026-10-08",
+   "tw": 54,
+   "taiex": 49313.44,
+   "parts": {
+    "momentum": 20,
+    "volatility": 83,
+    "breadth": 58,
+    "margin": 74,
+    "foreign": 50,
+    "fx": 25
+   }
+  },
+  {
+   "date": "2026-10-12",
+   "tw": 52,
+   "taiex": 49301.96,
+   "parts": {
+    "momentum": 16,
+    "volatility": 82,
+    "breadth": 70,
+    "margin": 78,
+    "foreign": 38,
+    "fx": 19
+   }
+  },
+  {
+   "date": "2026-10-13",
+   "tw": 47,
+   "taiex": 48341.31,
+   "parts": {
+    "momentum": 5,
+    "volatility": 66,
+    "breadth": 56,
+    "margin": 62,
+    "foreign": 28,
+    "fx": 18
+   }
+  },
+  {
+   "date": "2026-10-14",
+   "tw": 45,
+   "taiex": 48625.83,
+   "parts": {
+    "momentum": 6,
+    "volatility": 76,
+    "breadth": 83,
+    "margin": 76,
+    "foreign": 32,
+    "fx": 11
+   }
+  },
+  {
+   "date": "2026-10-15",
+   "tw": 39,
+   "taiex": 46969.87,
+   "parts": {
+    "momentum": 1,
+    "volatility": 57,
+    "breadth": 32,
+    "margin": 75,
+    "foreign": 15,
+    "fx": 6
+   }
+  },
+  {
+   "date": "2026-10-16",
+   "tw": 38,
+   "taiex": 47111.26,
+   "parts": {
+    "momentum": 2,
+    "volatility": 58,
+    "breadth": 58,
+    "margin": 76,
+    "foreign": 16,
+    "fx": 12
+   }
+  },
+  {
+   "date": "2026-10-19",
+   "tw": 32,
+   "taiex": 46822.08,
+   "parts": {
+    "momentum": 1,
+    "volatility": 58,
+    "breadth": 28,
+    "margin": 64,
+    "foreign": 15,
+    "fx": 5
+   }
+  },
+  {
+   "date": "2026-10-20",
+   "tw": 30,
+   "taiex": 46292.93,
+   "parts": {
+    "momentum": 1,
+    "volatility": 57,
+    "breadth": 22,
+    "margin": 52,
+    "foreign": 12,
+    "fx": 1
+   }
+  },
+  {
+   "date": "2026-10-21",
+   "tw": 27,
+   "taiex": 46887.77,
+   "parts": {
+    "momentum": 2,
+    "volatility": 60,
+    "breadth": 32,
+    "margin": 54,
+    "foreign": 8,
+    "fx": 16
+   }
+  },
+  {
+   "date": "2026-10-22",
+   "tw": 23,
+   "taiex": 46041.43,
+   "parts": {
+    "momentum": 1,
+    "volatility": 59,
+    "breadth": 12,
+    "margin": 27,
+    "foreign": 4,
+    "fx": 1
+   }
+  },
+  {
+   "date": "2026-10-27",
+   "tw": 20,
+   "taiex": 46096.23,
+   "parts": {
+    "momentum": 1,
+    "volatility": 60,
+    "breadth": 14,
+    "margin": 18,
+    "foreign": 2,
+    "fx": 1
+   }
+  },
+  {
+   "date": "2026-10-28",
+   "tw": 20,
+   "taiex": 47035.58,
+   "parts": {
+    "momentum": 3,
+    "volatility": 56,
+    "breadth": 22,
+    "margin": 22,
+    "foreign": 2,
+    "pcr": 100,
+    "fx": 6
+   }
+  },
+  {
+   "date": "2026-10-29",
+   "tw": 23,
+   "taiex": 46368.33,
+   "parts": {
+    "momentum": 2,
+    "volatility": 56,
+    "breadth": 20,
+    "margin": 18,
+    "foreign": 2,
+    "pcr": 100,
+    "fx": 12
+   }
+  },
+  {
+   "date": "2026-10-30",
+   "tw": 24,
+   "taiex": 45211.83,
+   "parts": {
+    "momentum": 0,
+    "volatility": 52,
+    "breadth": 1,
+    "margin": 15,
+    "foreign": 1,
+    "pcr": 99,
+    "fx": 3
+   }
+  },
+  {
+   "date": "2026-11-02",
+   "tw": 23,
+   "taiex": 44920.14,
+   "parts": {
+    "momentum": 0,
+    "volatility": 53,
+    "breadth": 6,
+    "margin": 13,
+    "foreign": 0,
+    "pcr": 98,
+    "fx": 2
+   }
+  },
+  {
+   "date": "2026-11-03",
+   "tw": 20,
+   "taiex": 43307.54,
+   "parts": {
+    "momentum": 0,
+    "volatility": 43,
+    "breadth": 0,
+    "margin": 8,
+    "foreign": 0,
+    "pcr": 99,
+    "fx": 5
+   }
+  },
+  {
+   "date": "2026-11-04",
+   "tw": 19,
+   "taiex": 42948.91,
+   "parts": {
+    "momentum": 0,
+    "volatility": 43,
+    "breadth": 1,
+    "margin": 6,
+    "foreign": 0,
+    "pcr": 100,
+    "fx": 2
+   }
+  },
+  {
+   "date": "2026-11-05",
+   "tw": 18,
+   "taiex": 41574.72,
+   "parts": {
+    "momentum": 0,
+    "volatility": 47,
+    "breadth": 1,
+    "margin": 5,
+    "foreign": 0,
+    "pcr": 100,
+    "fx": 0
+   }
+  },
+  {
+   "date": "2026-11-06",
+   "tw": 17,
+   "taiex": 39701.64,
+   "parts": {
+    "momentum": 0,
+    "volatility": 40,
+    "breadth": 0,
+    "margin": 2,
+    "foreign": 0,
+    "pcr": 100,
+    "fx": 0
+   }
+  },
+  {
+   "date": "2026-11-09",
+   "tw": 16,
+   "taiex": 41661.7,
+   "parts": {
+    "momentum": 1,
+    "volatility": 20,
+    "breadth": 2,
+    "margin": 3,
+    "foreign": 0,
+    "pcr": 100,
+    "fx": 1
+   }
+  },
+  {
+   "date": "2026-11-10",
+   "tw": 14,
+   "taiex": 42711.92,
+   "parts": {
+    "momentum": 2,
+    "volatility": 12,
+    "breadth": 2,
+    "margin": 2,
+    "foreign": 1,
+    "pcr": 98,
+    "fx": 2
+   }
+  },
+  {
+   "date": "2026-11-11",
+   "tw": 13,
+   "taiex": 44257.15,
+   "parts": {
+    "momentum": 3,
+    "volatility": 6,
+    "breadth": 1,
+    "margin": 2,
+    "foreign": 1,
+    "pcr": 95,
+    "fx": 1
+   }
+  },
+  {
+   "date": "2026-11-12",
+   "tw": 12,
+   "taiex": 43091.87,
+   "parts": {
+    "momentum": 3,
+    "volatility": 6,
+    "breadth": 2,
+    "margin": 2,
+    "foreign": 2,
+    "pcr": 85,
+    "fx": 5
+   }
+  },
+  {
+   "date": "2026-11-13",
+   "tw": 12,
+   "taiex": 43675.12,
+   "parts": {
+    "momentum": 4,
+    "volatility": 5,
+    "breadth": 19,
+    "margin": 1,
+    "foreign": 3,
+    "pcr": 65,
+    "fx": 5
+   }
+  },
+  {
+   "date": "2026-11-16",
+   "tw": 11,
+   "taiex": 41040.08,
+   "parts": {
+    "momentum": 1,
+    "volatility": 4,
+    "breadth": 6,
+    "margin": 1,
+    "foreign": 4,
+    "pcr": 65,
+    "fx": 18
+   }
+  },
+  {
+   "date": "2026-11-17",
+   "tw": 12,
+   "taiex": 40092.11,
+   "parts": {
+    "momentum": 1,
+    "volatility": 4,
+    "breadth": 8,
+    "margin": 0,
+    "foreign": 4,
+    "pcr": 93,
+    "fx": 11
+   }
+  },
+  {
+   "date": "2026-11-18",
+   "tw": 13,
+   "taiex": 40194.91,
+   "parts": {
+    "momentum": 1,
+    "volatility": 4,
+    "breadth": 11,
+    "margin": 1,
+    "foreign": 5,
+    "pcr": 95,
+    "fx": 33
+   }
+  },
+  {
+   "date": "2026-11-19",
+   "tw": 15,
+   "taiex": 38426.89,
+   "parts": {
+    "momentum": 0,
+    "volatility": 4,
+    "breadth": 7,
+    "margin": 0,
+    "foreign": 5,
+    "pcr": 98,
+    "fx": 38
+   }
+  }
+ ],
+ "hash": "e5f32c20cd461398",
+ "updated_at": "2026-11-21T10:02:58+08:00",
+ "updated_at_tw": "2026/11/21 10:02"
+}
