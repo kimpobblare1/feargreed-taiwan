@@ -50,7 +50,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add data public
+          git add -A public
+          if [ -d data ]; then git add -A data; fi
           git diff --cached --quiet || git commit -m "data/site update $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
           git pull --rebase --autostash || true
           git push || echo "push 실패 (다음 실행 때 다시 시도)"
