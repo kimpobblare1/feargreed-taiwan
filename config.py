@@ -22,7 +22,7 @@ LAUNCH_DATE = "2026-11-20"                       # 사이트 개설일 (약관 �
 # ── 광고·분석 (애드센스 승인 전에는 비워 두세요) ────────────
 ADSENSE_CLIENT = ""      # 예: "ca-pub-9496300145102373"  → 넣으면 모든 페이지에 광고 코드 + ads.txt 자동 생성
 ADSENSE_SLOT_TOP = ""    # 광고 단위 ID (선택). 비워 두면 '자동 광고'만 사용
-GA_ID = ""               # 예: "G-XXXXXXXXXX"  (대만 사이트용 새 속성을 만드는 것을 권장)
+GA_ID = "G-MHB1JXRTNF"     # GA4 측정 ID (GTM-로 시작하는 구글 태그 ID도 넣을 수 있어요)
 
 # ── 검색엔진 소유 확인 메타태그 (HTML 태그 방식일 때만) ─────
 GOOGLE_SITE_VERIFICATION = ""   # 서치콘솔 'HTML 태그'의 content 값

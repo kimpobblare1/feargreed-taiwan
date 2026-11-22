@@ -37,6 +37,11 @@ def ad_slot(name="top"):
 def ga_head():
     if not C.GA_ID:
         return ""
+    if C.GA_ID.startswith("GTM-"):
+        # 구글 태그(GTM 컨테이너) 방식: 받은 코드 그대로
+        return ('<script async src="https://www.googletagmanager.com/gtm.js?id={0}"></script>'
+                '<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}'
+                'gtag("js",new Date());</script>').format(C.GA_ID)
     return ('<script async src="https://www.googletagmanager.com/gtag/js?id={0}"></script>'
             '<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}'
             'gtag("js",new Date());gtag("config","{0}");</script>').format(C.GA_ID)
