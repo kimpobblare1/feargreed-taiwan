@@ -230,7 +230,12 @@ def build_post(p, prev, nxt):
         if v is not None:
             cells.append('<div><span class="small muted">%s</span><br>%s</div>' % (lab, score_b(v)))
     board = '<div class="scoreboard">%s</div>' % "".join(cells) if cells else ""
-    sec_path, sec_name = ("/insights/", "雷達洞察") if p.KIND == "insight" else ("/blog/", "每日日報")
+    if p.KIND == "insight":
+        sec_path, sec_name = "/insights/", "雷達洞察"
+    elif p.CATEGORY != "每日指數日報":           # 가이드 글은 新手指南 아래로
+        sec_path, sec_name = "/guide", "新手指南"
+    else:
+        sec_path, sec_name = "/blog/", "每日日報"
     crumb_label = getattr(p, "CRUMB_LABEL", P.date_label(p.DATE_ISO))
     pn = '<div class="pn">%s%s</div>' % (
         ('<a href="%s"><small>← 上一篇</small>%s</a>' % (prev.PATH, escape(prev.TITLE))) if prev else "<span></span>",
@@ -320,7 +325,10 @@ def main():
             d = json.load(f)
         os.makedirs(os.path.join(OUT, "data"), exist_ok=True)
         shutil.copy(DATA, os.path.join(OUT, "data", "latest.json"))
-    daily, insights = P.load("daily"), P.load("insight")
+    all_daily, insights = P.load("daily"), P.load("insight")
+    # 每日日報 목록에는 시황 글만, 가이드 글(CATEGORY가 다른 글)은 新手指南 페이지의 延伸閱讀로
+    daily = [p for p in all_daily if p.CATEGORY == "每日指數日報"]
+    guides = [p for p in all_daily if p.CATEGORY != "每日指數日報"]
     write("index.html", build_index(d, daily, insights))
     for path, title, desc, fn in [
         ("methodology", "台股恐懼貪婪指數計算方法", "恐貪雷達台股恐懼貪婪指數的七項指標、權重、資料來源與計算方式完整公開。", pages.methodology),
@@ -331,19 +339,22 @@ def main():
         ("contact", "聯絡我們", "與恐貪雷達聯絡的方式。", pages.contact),
     ]:
         html = fn()
+        if path == "guide" and guides:
+            html = html.replace("</article>", '<h2>延伸閱讀</h2><div class="posts">%s</div></article>'
+                                % "".join(post_card(g) for g in reversed(guides)))
         simp, _ = checks.check_text(html)
         if simp:
             raise SystemExit("【간체자】%s: %s" % (path, "".join(simp)))
         write(path + ".html", L.page("/" + path, title, desc, html, active="/" + path))
     write("404.html", L.page("/404", "找不到頁面", "找不到頁面", pages.not_found(), noindex=True))
-    for group in (daily, insights):
+    for group in (daily, guides, insights):
         for i, p in enumerate(group):
             build_post(p, group[i - 1] if i > 0 else None, group[i + 1] if i + 1 < len(group) else None)
     build_list("/blog/", "DAILY REPORT", "每日指數日報", "每個交易日用恐懼貪婪指數解讀台股、美股與亞洲市場的情緒變化。", daily,
                "台股恐懼貪婪指數每日日報", "恐貪雷達每日日報：台股恐懼貪婪指數、加權指數、外資、融資與美股情緒的每日變化。", "日報準備中。")
     build_list("/insights/", "RADAR INSIGHTS", "雷達洞察", "恐貪雷達獨家市場分析：用數據、圖表與表格，深入解讀台股與總體經濟。", insights,
                "雷達洞察｜台股與經濟獨家分析", "恐貪雷達獨家分析：以恐懼貪婪指數、外資、融資等數據與圖表，深入解讀台股與總體經濟。", "獨家市場分析即將推出。")
-    build_feeds(daily + insights)
+    build_feeds(all_daily + insights)
     print("✅ 빌드 완료: 일일 글 %d개, 인사이트 %d개, 대만 점수 %s" % (len(daily), len(insights), (d or {}).get("tw", {}).get("score", "없음")))
 
 
