@@ -68,6 +68,72 @@ def kv(label, v):
     return '<div><span>%s</span><b>%d</b><em style="color:%s">%s</em></div>' % (label, v, zc, zn)
 
 
+# ── 메인 페이지 설명 섹션 (공탐지수란? / 구간별 가이드 / 실전 활용 / 주의사항 / FAQ) ──
+ZONE_GUIDE = [
+    ("極度恐懼", "0–24", "恐慌性賣壓、融資斷頭、外資大量賣超，新聞標題普遍悲觀。",
+     ["是否因恐慌而想全部賣出？先回頭檢查原本的投資理由是否改變", "現金部位是否足夠應付持續下跌", "若有分批計畫，確認每一批的條件與金額"]),
+    ("恐懼", "25–44", "量縮觀望、反彈無力，多數人選擇等待。",
+     ["觀察外資賣超是否收斂、融資是否止跌", "比較台股與美日韓是否同步改善", "避免因短線反彈而臨時改變計畫"]),
+    ("中性", "45–54", "多空拉鋸、區間整理，方向尚未明確。",
+     ["回到基本面與自己的資產配置比例", "檢查持股是否過度集中在單一產業", "定期定額或既定計畫照常執行"]),
+    ("貪婪", "55–74", "追價意願提高，融資回升，題材股輪動加快。",
+     ["新增買進前，確認是否只是因為「大家都在買」", "檢視槓桿與融資使用是否過高", "預先設定停利或再平衡的規則"]),
+    ("極度貪婪", "75–100", "市場普遍樂觀，熱門股成交爆量，追高風險升高。",
+     ["檢查持股比重是否已偏離原本的配置", "留意融資快速增加、漲跌家數背離等過熱訊號", "思考若回檔 10–20%，自己是否承受得住"]),
+]
+FAQ_ITEMS = [
+    ("台股恐懼貪婪指數是什麼？", "把台股的市場情緒換算成 0（極度恐懼）到 100（極度貪婪）的分數。恐貪雷達參考 CNN 指數的概念，改用加權指數、融資餘額、外資買賣超、台指選擇權等台灣在地資料計算。"),
+    ("台股恐懼貪婪指數和恐慌指數（VIX）有什麼不同？", "恐慌指數只看選擇權反映的波動預期；恐懼貪婪指數綜合動能、波動、漲跌家數、融資、外資、選擇權與匯率七個面向，更完整反映市場情緒。"),
+    ("多久更新一次？", "每個交易日收盤後約 15:40 更新，晚間約 21:40 再補上融資等較晚公布的資料。國定假日與颱風休市不更新。"),
+    ("分數低就代表該買進嗎？", "不一定。指數描述的是目前的情緒，不是買賣訊號。極度恐懼可能持續數週，請搭配基本面與自身資金規劃判斷。"),
+    ("指數多少算「低」？", "0–24 為極度恐懼、25–44 為恐懼。但比起單一數字，更值得注意的是變化速度，例如三天內從 70 掉到 30。"),
+    ("可以用來做短線交易嗎？", "不建議。指數以收盤資料計算並取三日平均，適合觀察中期情緒變化，不適合當作盤中或隔日的進出依據。"),
+    ("為什麼和 CNN 的數字不一樣？", "CNN 指數只看美股，恐貪雷達的台股指數使用台灣市場資料，兩者計算方式不同，比較方向與變化會更有意義。"),
+]
+
+
+def build_learn_sections():
+    out = {}
+    out["what"] = (
+        '<section>%s<div class="card learn-what"><div>'
+        "<p>恐懼貪婪指數（Fear &amp; Greed Index）是把市場情緒變成 <b>0 到 100 的一個數字</b>。數字越低，代表投資人越恐懼、急著賣出；"
+        "數字越高，代表投資人越貪婪、搶著買進。美國 CNN 的版本只看美股，恐貪雷達則改用<b>台股在地資料</b>計算，"
+        "包括外資買賣超、融資餘額、台指選擇權與新台幣匯率等台灣投資人最關心的數據。</p>"
+        "<p>「別人貪婪時我恐懼，別人恐懼時我貪婪。」市場常被情緒推著走，這個指數的用途，是在你追高或殺低之前，"
+        "先提醒你現在的市場溫度。</p></div>"
+        '<ul class="facts"><li><b>0–100</b><span>極度恐懼 ↔ 極度貪婪</span></li>'
+        '<li><b>7 項</b><span>台股在地指標</span></li><li><b>每日</b><span>收盤後自動更新</span></li></ul>'
+        '</div></section>' % head("WHAT IS IT", "恐懼貪婪指數是什麼？", "/guide", "新手指南"))
+    cards = []
+    for (mx, _n, color), (name, rng, scene, checks_) in zip(C.ZONES, ZONE_GUIDE):
+        cards.append('<div class="zone-card" style="--zc:%s"><div class="zc-head"><b>%s</b><span>%s</span></div>'
+                     '<p class="scene">%s</p><p class="small muted" style="margin:8px 0 2px">可以檢查的事</p><ul>%s</ul></div>'
+                     % (color, name, rng, scene, "".join("<li>%s</li>" % c for c in checks_)))
+    out["zones"] = ('<section>%s<div class="zone-grid">%s</div>'
+                    '<p class="note">※ 以上為一般性的觀察重點，並非買賣建議。每個人的資金、目標與風險承受度不同，請依自身情況判斷。</p></section>'
+                    % (head("ZONE GUIDE", "各區間的觀察與應對指南"), "".join(cards)))
+    steps = [
+        ("看方向，不只看數字", "同樣是 30 分，從 60 掉下來和從 10 爬上來，代表的意義完全不同。先看最近一週的變化方向。"),
+        ("拆開七項指標", "用雷達圖找出是哪一項拖累分數：外資撤出、融資斷頭還是波動放大，原因不同，持續時間也不同。"),
+        ("對照美日韓", "四個市場同時恐懼，多半是全球事件；只有台股特別恐懼，則可能是權值股或資金面的在地因素。"),
+        ("寫下自己的規則", "事先決定「指數低於多少時檢查一次持股」「高於多少時重新平衡」，讓情緒指標幫你守紀律，而不是被情緒帶著走。"),
+    ]
+    out["howto"] = ('<section>%s<ol class="steps">%s</ol></section>'
+                    % (head("HOW TO USE", "恐懼貪婪指數實戰運用"),
+                       "".join('<li><b>%s</b><p>%s</p></li>' % (t, d) for t, d in steps)))
+    cautions = [
+        ("不是買賣訊號", "指數描述的是現在的情緒，不能預測明天的漲跌。"),
+        ("極端狀態可能持續", "極度恐懼或極度貪婪可能維持數週，過早反向操作同樣有風險。"),
+        ("各市場算法不同", "台股、美股、日股、韓股的指數不宜直接比大小，請比較各自的變化。"),
+        ("資料可能修正", "官方資料偶有更正，過去的分數可能出現 1–2 分的調整。"),
+        ("請自行承擔風險", "本站不推薦個股、不提供投資顧問服務，投資決定請依自身狀況判斷。"),
+    ]
+    out["caution"] = ('<section>%s<div class="caution-grid">%s</div></section>'
+                      % (head("BEFORE YOU INVEST", "投資前一定要知道的注意事項"),
+                         "".join('<div class="caution"><b>%s</b><p>%s</p></div>' % (t, d) for t, d in cautions)))
+    return out
+
+
 # ─────────────────────────────────────────────
 def build_index(d, daily, insights):
     d = d or {}
@@ -161,18 +227,14 @@ def build_index(d, daily, insights):
         blog = '<section>%s<div class="posts">%s</div></section>' % (
             head("DAILY REPORT", "每日指數日報", "/blog/", "全部日報"), "".join(post_card(p) for p in list(reversed(daily))[:3]))
 
-    faq_items = [
-        ("台股恐懼貪婪指數是什麼？", "把台股的市場情緒換算成 0（極度恐懼）到 100（極度貪婪）的分數。恐貪雷達參考 CNN 指數的概念，改用加權指數、融資餘額、外資買賣超、台指選擇權等台灣在地資料計算。"),
-        ("台股恐懼貪婪指數和恐慌指數（VIX）有什麼不同？", "恐慌指數只看選擇權隱含的波動程度；恐懼貪婪指數綜合動能、波動、漲跌家數、融資、外資、選擇權與匯率七個面向，更完整反映市場情緒。"),
-        ("多久更新一次？", "每個交易日收盤後約 15:40 更新，晚間約 21:40 再補上融資等較晚公布的資料。"),
-        ("分數低就代表該買進嗎？", "不一定。指數描述的是目前的情緒，不是買賣訊號。極度恐懼可能持續一段時間，請搭配基本面與自身資金規劃判斷。"),
-        ("為什麼和 CNN 的數字不一樣？", "CNN 指數只看美股，恐貪雷達的台股指數使用台灣市場資料，兩者計算方式不同，比較方向與變化會更有意義。"),
-    ]
-    faq = '<section>%s%s</section>' % (head("FAQ", "常見問題"), "".join(
-        '<details class="faq"><summary>%s</summary><p>%s</p></details>' % (escape(q), escape(a)) for q, a in faq_items))
-    zones = '<section>%s<div class="card" style="padding:6px">%s</div></section>' % (head("HOW TO READ", "分數怎麼看？"), pages.zone_table())
+    learn = build_learn_sections()
+    faq_items = FAQ_ITEMS
+    faq = '<section>%s%s</section>' % (head("FAQ", "常見問題（FAQ）"), "".join(
+        '<details class="faq"%s><summary>%s</summary><p>%s</p></details>' % (" open" if i == 0 else "", escape(q), escape(a))
+        for i, (q, a) in enumerate(faq_items)))
 
-    body = hero + markets + L.ad_slot() + radar_sec + chart + ins_sec + L.ad_slot() + blog + zones + faq
+    body = (hero + markets + L.ad_slot() + radar_sec + chart + learn["what"] + learn["zones"] + ins_sec + L.ad_slot()
+            + blog + learn["howto"] + learn["caution"] + faq)
     jsonld = [
         {"@context": "https://schema.org", "@type": "WebSite", "name": C.SITE_NAME, "alternateName": [C.SITE_SUBTITLE, C.SITE_NAME_EN],
          "url": C.SITE_URL + "/", "inLanguage": "zh-TW"},
