@@ -65,6 +65,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
           command: deploy
 
       # GitHub Pages로 배포할 때만 (저장소 Settings → Variables 에 DEPLOY_GH_PAGES = true)
