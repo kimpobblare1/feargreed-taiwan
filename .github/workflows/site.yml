@@ -10,7 +10,7 @@ on:
     - cron: "13 1 * * 1-5"    # 대만 09:13  일본·한국 사이트 값 반영
   push:
     branches: [main]
-    paths: ["content/**", "tools/**", "static/**", "config.py", "scripts/**"]
+    paths: ["content/**", "tools/**", "static/**", "config.py", "scripts/**", "wrangler.jsonc"]
   workflow_dispatch:
     inputs:
       backfill:
@@ -30,6 +30,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -55,6 +57,15 @@ jobs:
           git diff --cached --quiet || git commit -m "data/site update $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
           git pull --rebase --autostash || true
           git push || echo "push 실패 (다음 실행 때 다시 시도)"
+
+      # Cloudflare에 직접 배포 (저장소 Secrets에 CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID 필요)
+      - name: Cloudflare 배포
+        if: env.CF_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
 
       # GitHub Pages로 배포할 때만 (저장소 Settings → Variables 에 DEPLOY_GH_PAGES = true)
       - if: vars.DEPLOY_GH_PAGES == 'true'
