@@ -1,7 +1,7 @@
 {
  "success": true,
  "tw": {
-  "score": 6,
+  "score": 5,
   "label": "極度恐懼",
   "previous_close": 5,
   "previous_1_week": 7,
@@ -48,6 +48,19 @@
     "n": 252
    },
    {
+    "key": "margin",
+    "name": "融資餘額",
+    "weight": 0.15,
+    "value": 0,
+    "raw": -31.56,
+    "unit": "%",
+    "desc": "上市融資餘額的20日變化率。散戶加碼槓桿代表貪婪。",
+    "low": -32.46,
+    "high": 23.35,
+    "median": 7.68,
+    "n": 252
+   },
+   {
     "key": "foreign",
     "name": "外資動向",
     "weight": 0.15,
@@ -77,8 +90,8 @@
     "key": "fx",
     "name": "新台幣匯率",
     "weight": 0.1,
-    "value": 30,
-    "raw": 0.81,
+    "value": 32,
+    "raw": 0.58,
     "unit": "%",
     "desc": "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。",
     "low": -2.29,
@@ -87,9 +100,7 @@
     "n": 252
    }
   ],
-  "missing": [
-   "融資餘額"
-  ],
+  "missing": [],
   "stale": false,
   "taiex": {
    "close": 36811.89,
@@ -98,11 +109,11 @@
   }
  },
  "us": {
-  "score": 10,
-  "previous_close": 19,
-  "previous_1_week": 37,
-  "previous_1_month": 29,
-  "as_of": "2026-11-20",
+  "score": 17,
+  "previous_close": 10,
+  "previous_1_week": 31,
+  "previous_1_month": 17,
+  "as_of": "2026-11-23",
   "url": "https://edition.cnn.com/markets/fear-and-greed",
   "stale": false,
   "label": "極度恐懼"
@@ -116,12 +127,12 @@
   "label": "極度恐懼"
  },
  "kr": {
-  "score": 21,
+  "score": 25,
   "previous_close": null,
   "as_of": "",
   "url": "https://feargreed.co.kr",
   "stale": false,
-  "label": "極度恐懼"
+  "label": "恐懼"
  },
  "history": [
   {
@@ -1943,24 +1954,25 @@
     "pcr": 1,
     "fx": 9
    },
-   "us": 10
+   "us": 19
   },
   {
    "date": "2026-11-23",
-   "tw": 6,
+   "tw": 5,
    "taiex": 36811.89,
    "parts": {
     "momentum": 1,
     "volatility": 0,
     "breadth": 5,
+    "margin": 1,
     "foreign": 6,
     "pcr": 0,
-    "fx": 43
+    "fx": 48
    },
-   "us": 10
+   "us": 19
   }
  ],
- "hash": "1356b34f77abf2bc",
- "updated_at": "2026-11-23T16:58:01+08:00",
- "updated_at_tw": "2026/11/23 16:58"
+ "hash": "215a6a95c67e01f9",
+ "updated_at": "2026-11-24T03:29:46+08:00",
+ "updated_at_tw": "2026/11/24 03:29"
 }
