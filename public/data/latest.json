@@ -90,8 +90,8 @@
     "key": "fx",
     "name": "新台幣匯率",
     "weight": 0.1,
-    "value": 32,
-    "raw": 0.58,
+    "value": 28,
+    "raw": 1.1,
     "unit": "%",
     "desc": "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。",
     "low": -2.29,
@@ -127,12 +127,12 @@
   "label": "極度恐懼"
  },
  "kr": {
-  "score": 25,
+  "score": 77,
   "previous_close": null,
   "as_of": "",
   "url": "https://feargreed.co.kr",
   "stale": false,
-  "label": "恐懼"
+  "label": "極度貪婪"
  },
  "history": [
   {
@@ -1967,12 +1967,12 @@
     "margin": 1,
     "foreign": 6,
     "pcr": 0,
-    "fx": 48
+    "fx": 37
    },
    "us": 19
   }
  ],
- "hash": "215a6a95c67e01f9",
- "updated_at": "2026-11-24T03:29:46+08:00",
- "updated_at_tw": "2026/11/24 03:29"
+ "hash": "528a8edc9780b3c2",
+ "updated_at": "2026-11-24T09:10:57+08:00",
+ "updated_at_tw": "2026/11/24 09:10"
 }
