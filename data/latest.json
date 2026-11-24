@@ -1,45 +1,45 @@
 {
  "success": true,
  "tw": {
-  "score": 5,
+  "score": 7,
   "label": "極度恐懼",
   "previous_close": 5,
   "previous_1_week": 7,
-  "previous_1_month": 26,
-  "as_of": "2026-11-23",
+  "previous_1_month": 24,
+  "as_of": "2026-11-24",
   "indicators": [
    {
     "key": "momentum",
     "name": "市場動能",
     "weight": 0.2,
-    "value": 0,
-    "raw": -18.47,
+    "value": 1,
+    "raw": -11.11,
     "unit": "%",
     "desc": "加權指數與125日均線的乖離率。高於均線越多越貪婪。",
     "low": -20.26,
     "high": 36.65,
-    "median": 15.73,
+    "median": 15.66,
     "n": 206
    },
    {
     "key": "volatility",
     "name": "市場波動",
     "weight": 0.15,
-    "value": 2,
-    "raw": 50.88,
+    "value": 0,
+    "raw": 61.45,
     "unit": "%",
     "desc": "加權指數近20日的年化波動率。波動越大越恐懼。",
     "low": 12.78,
-    "high": 50.88,
-    "median": 24.88,
+    "high": 61.45,
+    "median": 25.22,
     "n": 252
    },
    {
     "key": "breadth",
     "name": "漲跌家數",
     "weight": 0.15,
-    "value": 6,
-    "raw": -24.83,
+    "value": 10,
+    "raw": -15.66,
     "unit": "%",
     "desc": "上市股票近10日上漲與下跌家數的淨比率。上漲家數越多越貪婪。",
     "low": -38.74,
@@ -48,50 +48,11 @@
     "n": 252
    },
    {
-    "key": "margin",
-    "name": "融資餘額",
-    "weight": 0.15,
-    "value": 0,
-    "raw": -31.56,
-    "unit": "%",
-    "desc": "上市融資餘額的20日變化率。散戶加碼槓桿代表貪婪。",
-    "low": -32.46,
-    "high": 23.35,
-    "median": 7.68,
-    "n": 252
-   },
-   {
-    "key": "foreign",
-    "name": "外資動向",
-    "weight": 0.15,
-    "value": 5,
-    "raw": -10421.46,
-    "unit": "億元",
-    "desc": "外資近20個交易日累計買賣超。持續買超代表貪婪。",
-    "low": -16855.03,
-    "high": 4084.48,
-    "median": -1492.98,
-    "n": 252
-   },
-   {
-    "key": "pcr",
-    "name": "選擇權多空比",
-    "weight": 0.1,
-    "value": 1,
-    "raw": 75.49,
-    "unit": "%",
-    "desc": "台指選擇權賣權/買權成交量比（5日平均）。台股行情強勢時賣權成交量常隨之增加，比值越高越偏多。",
-    "low": 75.49,
-    "high": 122.81,
-    "median": 103.29,
-    "n": 238
-   },
-   {
     "key": "fx",
     "name": "新台幣匯率",
     "weight": 0.1,
     "value": 28,
-    "raw": 1.1,
+    "raw": 1.01,
     "unit": "%",
     "desc": "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。",
     "low": -2.29,
@@ -100,12 +61,16 @@
     "n": 252
    }
   ],
-  "missing": [],
+  "missing": [
+   "融資餘額",
+   "外資動向",
+   "選擇權多空比"
+  ],
   "stale": false,
   "taiex": {
-   "close": 36811.89,
-   "change": 778.6,
-   "change_pct": 2.16
+   "close": 40122.35,
+   "change": 3310.46,
+   "change_pct": 8.99
   }
  },
  "us": {
@@ -119,15 +84,15 @@
   "label": "極度恐懼"
  },
  "jp": {
-  "score": 16,
+  "score": 14,
   "previous_close": 16,
-  "as_of": "2026-11-20",
+  "as_of": "2026-11-24",
   "url": "https://feargreedjapan.com",
   "stale": false,
   "label": "極度恐懼"
  },
  "kr": {
-  "score": 77,
+  "score": 75,
   "previous_close": null,
   "as_of": "",
   "url": "https://feargreed.co.kr",
@@ -135,20 +100,6 @@
   "label": "極度貪婪"
  },
  "history": [
-  {
-   "date": "2026-05-15",
-   "tw": 69,
-   "taiex": 41172.36,
-   "parts": {
-    "momentum": 86,
-    "volatility": 31,
-    "breadth": 21,
-    "margin": 94,
-    "foreign": 67,
-    "pcr": 95,
-    "fx": 69
-   }
-  },
   {
    "date": "2026-05-18",
    "tw": 66,
@@ -182,7 +133,7 @@
    "tw": 53,
    "taiex": 40020.82,
    "parts": {
-    "momentum": 71,
+    "momentum": 70,
     "volatility": 24,
     "breadth": 7,
     "margin": 92,
@@ -197,7 +148,7 @@
    "taiex": 41368.21,
    "parts": {
     "momentum": 83,
-    "volatility": 22,
+    "volatility": 23,
     "breadth": 15,
     "margin": 93,
     "foreign": 32,
@@ -227,7 +178,7 @@
     "momentum": 98,
     "volatility": 21,
     "breadth": 33,
-    "margin": 96,
+    "margin": 95,
     "foreign": 48,
     "pcr": 94,
     "fx": 77
@@ -253,7 +204,7 @@
    "taiex": 44256.8,
    "parts": {
     "momentum": 99,
-    "volatility": 21,
+    "volatility": 22,
     "breadth": 44,
     "margin": 92,
     "foreign": 78,
@@ -268,7 +219,7 @@
    "parts": {
     "momentum": 91,
     "volatility": 21,
-    "breadth": 52,
+    "breadth": 53,
     "margin": 90,
     "foreign": 80,
     "pcr": 89,
@@ -305,7 +256,7 @@
   },
   {
    "date": "2026-06-02",
-   "tw": 83,
+   "tw": 82,
    "taiex": 45557.31,
    "parts": {
     "momentum": 99,
@@ -364,7 +315,7 @@
    "tw": 65,
    "taiex": 43502.78,
    "parts": {
-    "momentum": 75,
+    "momentum": 74,
     "volatility": 18,
     "breadth": 55,
     "margin": 85,
@@ -379,7 +330,7 @@
    "taiex": 44704.44,
    "parts": {
     "momentum": 80,
-    "volatility": 15,
+    "volatility": 16,
     "breadth": 80,
     "margin": 85,
     "foreign": 30,
@@ -392,7 +343,7 @@
    "tw": 52,
    "taiex": 43225.54,
    "parts": {
-    "momentum": 67,
+    "momentum": 66,
     "volatility": 11,
     "breadth": 74,
     "margin": 74,
@@ -417,12 +368,12 @@
   },
   {
    "date": "2026-06-12",
-   "tw": 52,
+   "tw": 51,
    "taiex": 44169.04,
    "parts": {
-    "momentum": 75,
+    "momentum": 74,
     "volatility": 11,
-    "breadth": 77,
+    "breadth": 76,
     "margin": 84,
     "foreign": 24,
     "pcr": 48,
@@ -451,10 +402,10 @@
     "momentum": 84,
     "volatility": 13,
     "breadth": 61,
-    "margin": 86,
+    "margin": 85,
     "foreign": 63,
     "pcr": 94,
-    "fx": 82
+    "fx": 81
    }
   },
   {
@@ -462,9 +413,9 @@
    "tw": 66,
    "taiex": 45877.39,
    "parts": {
-    "momentum": 84,
+    "momentum": 83,
     "volatility": 14,
-    "breadth": 57,
+    "breadth": 58,
     "margin": 88,
     "foreign": 68,
     "pcr": 93,
@@ -476,10 +427,10 @@
    "tw": 67,
    "taiex": 46465.2,
    "parts": {
-    "momentum": 89,
+    "momentum": 88,
     "volatility": 18,
     "breadth": 70,
-    "margin": 87,
+    "margin": 86,
     "foreign": 60,
     "pcr": 96,
     "fx": 59
@@ -490,7 +441,7 @@
    "tw": 69,
    "taiex": 47741.51,
    "parts": {
-    "momentum": 97,
+    "momentum": 96,
     "volatility": 17,
     "breadth": 84,
     "margin": 86,
@@ -518,7 +469,7 @@
    "tw": 62,
    "taiex": 46043.6,
    "parts": {
-    "momentum": 74,
+    "momentum": 73,
     "volatility": 16,
     "breadth": 75,
     "margin": 82,
@@ -537,8 +488,8 @@
     "breadth": 85,
     "margin": 83,
     "foreign": 7,
-    "pcr": 37,
-    "fx": 31
+    "pcr": 36,
+    "fx": 30
    }
   },
   {
@@ -560,9 +511,9 @@
    "tw": 38,
    "taiex": 44999.9,
    "parts": {
-    "momentum": 58,
+    "momentum": 57,
     "volatility": 11,
-    "breadth": 44,
+    "breadth": 45,
     "margin": 32,
     "foreign": 5,
     "pcr": 5,
@@ -588,13 +539,13 @@
    "tw": 37,
    "taiex": 47018.99,
    "parts": {
-    "momentum": 75,
+    "momentum": 74,
     "volatility": 10,
-    "breadth": 57,
+    "breadth": 58,
     "margin": 43,
     "foreign": 5,
     "pcr": 81,
-    "fx": 29
+    "fx": 28
    }
   },
   {
@@ -602,13 +553,13 @@
    "tw": 42,
    "taiex": 46744.16,
    "parts": {
-    "momentum": 70,
-    "volatility": 10,
+    "momentum": 69,
+    "volatility": 11,
     "breadth": 57,
     "margin": 60,
     "foreign": 2,
     "pcr": 83,
-    "fx": 29
+    "fx": 28
    }
   },
   {
@@ -622,7 +573,7 @@
     "margin": 69,
     "foreign": 2,
     "pcr": 88,
-    "fx": 29
+    "fx": 28
    }
   },
   {
@@ -636,21 +587,21 @@
     "margin": 76,
     "foreign": 5,
     "pcr": 71,
-    "fx": 17
+    "fx": 16
    }
   },
   {
    "date": "2026-07-07",
-   "tw": 45,
+   "tw": 44,
    "taiex": 45479.11,
    "parts": {
     "momentum": 48,
     "volatility": 21,
-    "breadth": 67,
-    "margin": 73,
+    "breadth": 68,
+    "margin": 72,
     "foreign": 6,
     "pcr": 12,
-    "fx": 17
+    "fx": 16
    }
   },
   {
@@ -658,7 +609,7 @@
    "tw": 39,
    "taiex": 45734.41,
    "parts": {
-    "momentum": 50,
+    "momentum": 49,
     "volatility": 23,
     "breadth": 60,
     "margin": 54,
@@ -673,7 +624,7 @@
    "taiex": 45354.61,
    "parts": {
     "momentum": 42,
-    "volatility": 28,
+    "volatility": 29,
     "breadth": 61,
     "margin": 82,
     "foreign": 9,
@@ -686,7 +637,7 @@
    "tw": 37,
    "taiex": 45380.52,
    "parts": {
-    "momentum": 41,
+    "momentum": 40,
     "volatility": 29,
     "breadth": 85,
     "margin": 80,
@@ -703,7 +654,7 @@
     "momentum": 31,
     "volatility": 30,
     "breadth": 42,
-    "margin": 50,
+    "margin": 49,
     "foreign": 7,
     "pcr": 3,
     "fx": 17
@@ -716,7 +667,7 @@
    "parts": {
     "momentum": 41,
     "volatility": 33,
-    "breadth": 53,
+    "breadth": 54,
     "margin": 42,
     "foreign": 6,
     "pcr": 27,
@@ -728,9 +679,9 @@
    "tw": 30,
    "taiex": 45624.98,
    "parts": {
-    "momentum": 40,
-    "volatility": 33,
-    "breadth": 49,
+    "momentum": 39,
+    "volatility": 34,
+    "breadth": 50,
     "margin": 44,
     "foreign": 2,
     "pcr": 25,
@@ -772,7 +723,7 @@
    "parts": {
     "momentum": 14,
     "volatility": 0,
-    "breadth": 6,
+    "breadth": 7,
     "margin": 0,
     "foreign": 0,
     "pcr": 27,
@@ -804,7 +755,7 @@
     "margin": 1,
     "foreign": 4,
     "pcr": 35,
-    "fx": 26
+    "fx": 25
    }
   },
   {
@@ -832,7 +783,7 @@
     "margin": 2,
     "foreign": 10,
     "pcr": 68,
-    "fx": 32
+    "fx": 31
    }
   },
   {
@@ -874,7 +825,7 @@
     "margin": 0,
     "foreign": 2,
     "pcr": 21,
-    "fx": 25
+    "fx": 24
    }
   },
   {
@@ -884,11 +835,11 @@
    "parts": {
     "momentum": 5,
     "volatility": 0,
-    "breadth": 16,
+    "breadth": 17,
     "margin": 1,
     "foreign": 10,
     "pcr": 20,
-    "fx": 29
+    "fx": 28
    }
   },
   {
@@ -902,7 +853,7 @@
     "margin": 1,
     "foreign": 12,
     "pcr": 17,
-    "fx": 29
+    "fx": 28
    }
   },
   {
@@ -924,7 +875,7 @@
    "tw": 15,
    "taiex": 44611.6,
    "parts": {
-    "momentum": 15,
+    "momentum": 16,
     "volatility": 0,
     "breadth": 29,
     "margin": 2,
@@ -956,7 +907,7 @@
     "volatility": 1,
     "breadth": 57,
     "margin": 3,
-    "foreign": 18,
+    "foreign": 19,
     "pcr": 59,
     "fx": 60
    }
@@ -966,7 +917,7 @@
    "tw": 28,
    "taiex": 44928.76,
    "parts": {
-    "momentum": 16,
+    "momentum": 17,
     "volatility": 0,
     "breadth": 83,
     "margin": 4,
@@ -1068,21 +1019,21 @@
     "volatility": 5,
     "breadth": 42,
     "margin": 6,
-    "foreign": 79,
+    "foreign": 80,
     "pcr": 83,
     "fx": 99
    }
   },
   {
    "date": "2026-08-20",
-   "tw": 42,
+   "tw": 43,
    "taiex": 44933.74,
    "parts": {
     "momentum": 7,
     "volatility": 5,
     "breadth": 64,
     "margin": 6,
-    "foreign": 79,
+    "foreign": 80,
     "pcr": 86,
     "fx": 97
    }
@@ -1121,7 +1072,7 @@
    "taiex": 45169.46,
    "parts": {
     "momentum": 7,
-    "volatility": 20,
+    "volatility": 21,
     "breadth": 40,
     "margin": 14,
     "foreign": 96,
@@ -1204,7 +1155,7 @@
    "tw": 70,
    "taiex": 46164.72,
    "parts": {
-    "momentum": 11,
+    "momentum": 12,
     "volatility": 82,
     "breadth": 86,
     "margin": 80,
@@ -1243,7 +1194,7 @@
   },
   {
    "date": "2026-09-07",
-   "tw": 58,
+   "tw": 59,
    "taiex": 47326.27,
    "parts": {
     "momentum": 25,
@@ -1302,7 +1253,7 @@
    "tw": 51,
    "taiex": 46184.85,
    "parts": {
-    "momentum": 3,
+    "momentum": 4,
     "volatility": 69,
     "breadth": 8,
     "margin": 47,
@@ -1425,7 +1376,7 @@
    "tw": 54,
    "taiex": 48024.6,
    "parts": {
-    "momentum": 14,
+    "momentum": 15,
     "volatility": 70,
     "breadth": 46,
     "margin": 71,
@@ -1513,7 +1464,7 @@
   },
   {
    "date": "2026-10-07",
-   "tw": 57,
+   "tw": 58,
    "taiex": 49806.37,
    "parts": {
     "momentum": 31,
@@ -1535,8 +1486,7 @@
     "margin": 74,
     "foreign": 50,
     "fx": 25
-   },
-   "us": 39
+   }
   },
   {
    "date": "2026-10-12",
@@ -1970,9 +1920,21 @@
     "fx": 37
    },
    "us": 19
+  },
+  {
+   "date": "2026-11-24",
+   "tw": 7,
+   "taiex": 40122.35,
+   "parts": {
+    "momentum": 3,
+    "volatility": 0,
+    "breadth": 17,
+    "fx": 39
+   },
+   "us": 17
   }
  ],
- "hash": "528a8edc9780b3c2",
- "updated_at": "2026-11-24T09:10:57+08:00",
- "updated_at_tw": "2026/11/24 09:10"
+ "hash": "ba9079869c4f54f6",
+ "updated_at": "2026-11-24T14:19:32+08:00",
+ "updated_at_tw": "2026/11/24 14:19"
 }
