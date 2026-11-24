@@ -48,7 +48,13 @@ def ga_head():
 
 
 def page(path, title, description, body, og_type="website", jsonld=None, noindex=False, active="/", og_image="/assets/og.png"):
-    full_title = title if C.SITE_NAME in title else "%s｜%s" % (title, C.SITE_NAME)
+    brand = "%s %s" % (C.SITE_NAME, C.SITE_NAME_EN)          # 예: 恐貪雷達 FearGreedTaiwan
+    if title == C.HOME_TITLE or C.SITE_NAME_EN in title:   # 메인 제목은 config 그대로
+        full_title = title
+    elif C.SITE_NAME in title:
+        full_title = "%s｜%s" % (title, C.SITE_NAME_EN)
+    else:
+        full_title = "%s｜%s" % (title, brand)
     meta = []
     if C.GOOGLE_SITE_VERIFICATION:
         meta.append('<meta name="google-site-verification" content="%s">' % C.GOOGLE_SITE_VERIFICATION)

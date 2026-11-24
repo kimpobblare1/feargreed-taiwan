@@ -236,7 +236,7 @@ def build_index(d, daily, insights):
     body = (hero + markets + L.ad_slot() + radar_sec + chart + learn["what"] + learn["zones"] + ins_sec + L.ad_slot()
             + blog + learn["howto"] + learn["caution"] + faq)
     jsonld = [
-        {"@context": "https://schema.org", "@type": "WebSite", "name": C.SITE_NAME, "alternateName": [C.SITE_SUBTITLE, C.SITE_NAME_EN],
+        {"@context": "https://schema.org", "@type": "WebSite", "name": C.SITE_NAME, "alternateName": [C.SITE_SUBTITLE, C.SITE_NAME_EN, "Fear & Greed Taiwan", "feargreedtaiwan.com"],
          "url": C.SITE_URL + "/", "inLanguage": "zh-TW"},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_items]},

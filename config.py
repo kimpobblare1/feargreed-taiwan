@@ -7,16 +7,16 @@
 # ── 기본 정보 ─────────────────────────────────────────────
 SITE_URL = "https://feargreedtaiwan.com"        # ← 실제 도메인으로 바꾸세요 (끝에 / 없이)
 SITE_NAME = "恐貪雷達"                            # 사이트 이름 (콩탄 레이다 = 공포탐욕 레이더)
-SITE_NAME_EN = "Fear & Greed Radar Taiwan"
+SITE_NAME_EN = "FearGreedTaiwan"                 # 영어 이름 (검색어 feargreedtaiwan 대응, 모든 제목 뒤에 붙음)
 SITE_SUBTITLE = "台股恐懼貪婪指數"                # 로고 아래 작은 글씨 (검색 핵심어)
 SITE_TAGLINE = "每天收盤後，用7項在地指標掃描台股市場情緒"
 OPERATOR_NAME = "恐貪雷達 編輯部"                  # 운영자 표기
 CONTACT_EMAIL = "contact@feargreedtaiwan.com"   # ← 실제로 받을 수 있는 메일로 바꾸세요
 
 # ── 검색 결과에 나오는 메인 페이지 제목·설명 ───────────────────
-HOME_TITLE = "台股恐懼貪婪指數今日｜恐貪雷達・CNN美股恐慌指數同步看"
+HOME_TITLE = "台股恐懼貪婪指數今日｜恐貪雷達・Fear&Greed Taiwan"   # 메인 페이지 검색 제목 (이대로 표시)
 HOME_DESCRIPTION = ("恐貪雷達每天收盤後更新台股恐懼貪婪指數，用加權指數、外資、融資、台指選擇權等7項指標判斷市場是恐慌還是貪婪，"
-                    "並同步比較CNN美股、日股、韓股恐懼貪婪指數。")
+                    "並同步比較CNN美股、日股、韓股恐懼貪婪指數。Fear & Greed Taiwan（feargreedtaiwan.com）")
 LAUNCH_DATE = "2026-11-20"                       # 사이트 개설일 (약관 제정일 등에 사용)
 
 # ── 광고·분석 (애드센스 승인 전에는 비워 두세요) ────────────
