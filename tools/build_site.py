@@ -170,7 +170,7 @@ def build_index(d, daily, insights):
     else:
         hero = '<section class="card"><h1>台股恐懼貪婪指數</h1><p class="muted">資料準備中，請稍後再來。</p></section>'
 
-    # 4개 시장
+    # 4개 시장 (모두 '마감 기준' 지수, 해외 시장은 실시간 링크 제공)
     rows = []
     for code, name, sub, dd, link, main in (
             ("TW", "台股", "恐貪雷達計算", tw, "/methodology", True),
@@ -180,21 +180,27 @@ def build_index(d, daily, insights):
         sc = dd.get("score") if dd else None
         zn, zc = svg.zone_of(sc) if sc is not None else ("準備中", "#7A8899")
         prev = dd.get("previous_close") if dd else None
+        asof = (dd.get("as_of") or "") if dd else ""
+        basis = ("%s 收盤" % asof[5:].replace("-", "/")) if len(asof) >= 10 else "最近收盤"
         delta = ""
         if sc is not None and prev is not None:
             delta = "<small>前日 %d（%+d）</small>" % (prev, sc - prev)
-        inner = ('<div class="name"><span class="code">%s</span>%s<small>%s</small></div>'
-                 '<div class="sc" style="color:%s">%s</div>%s<div class="zl" style="color:%s">%s%s</div>'
-                 % (code, name, sub, zc, sc if sc is not None else "–", svg.scale_row(sc), zc, zn, delta))
+        live = '<span class="live">查看詳情 →</span>' if main else '<span class="live">查看即時數值 ↗</span>'
+        inner = ('<div class="name"><span class="code">%s</span>%s<small>%s</small><small class="basis">%s恐懼貪婪指數</small></div>'
+                 '<div class="sc" style="color:%s">%s</div>%s'
+                 '<div class="zl"><b style="color:%s">%s</b>%s%s</div>'
+                 % (code, name, sub, basis, zc, sc if sc is not None else "–", svg.scale_row(sc), zc, zn, delta, live))
         cls = "mkt-row" + (" main" if main else "")
         if link:
             ext = "" if link.startswith("/") else ' target="_blank" rel="noopener"'
             rows.append('<a class="%s" href="%s"%s>%s</a>' % (cls, escape(link), ext, inner))
         else:
             rows.append('<div class="%s">%s</div>' % (cls, inner))
-    markets = ('<section>%s<div class="card" style="padding:6px 20px">%s</div>'
+    markets = ('<section>%s<p class="note" style="margin-top:0">※ 以下皆為各市場<b>收盤</b>恐懼貪婪指數（每日收盤後更新）。'
+               '想看盤中即時數值，請點選各市場的「查看即時數值」前往官方或姊妹站。</p>'
+               '<div class="card" style="padding:6px 20px">%s</div>'
                '<p class="note">※ 各市場的計算方式不同（美股為 CNN 官方數值），數字高低不宜直接比較，建議觀察各自的方向與變化。</p></section>'
-               % (head("MARKET RADAR", "四大市場情緒一覽"), "".join(rows)))
+               % (head("MARKET RADAR", "四大市場收盤情緒一覽"), "".join(rows)))
 
     # 레이더 + 지표
     radar_sec = ""

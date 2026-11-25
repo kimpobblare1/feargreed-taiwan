@@ -9,7 +9,7 @@ from urllib.parse import quote
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config as C  # noqa: E402
 
-ASSET_VER = "3"
+ASSET_VER = "4"
 NAV = [("/", "今日指數"), ("/blog/", "每日日報"), ("/insights/", "雷達洞察"), ("/methodology", "計算方法"), ("/guide", "新手指南"), ("/about", "關於我們")]
 
 
