@@ -128,8 +128,8 @@
  },
  "kr": {
   "score": 76,
-  "previous_close": null,
-  "as_of": "",
+  "previous_close": 16,
+  "as_of": "2026-11-24",
   "url": "https://feargreed.co.kr",
   "stale": false,
   "label": "極度貪婪"
@@ -1972,7 +1972,7 @@
    "us": 17
   }
  ],
- "hash": "0a53cc16eb8a5680",
- "updated_at": "2026-11-25T11:39:34+08:00",
- "updated_at_tw": "2026/11/25 11:39"
+ "hash": "7d82426f12543ba2",
+ "updated_at": "2026-11-25T13:00:07+08:00",
+ "updated_at_tw": "2026/11/25 13:00"
 }
