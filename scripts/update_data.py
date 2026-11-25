@@ -374,29 +374,35 @@ def main(argv=None):
     except Exception as e:  # noqa: BLE001
         log("  ⚠ CNN 실패:", e)
     sis = {}
-    # 한국은 '마감 지수'만 써요: 한국 시간 평일 15:40 이후 실행에서만 가져오고, 그 외에는 이전 마감 값을 유지
+    # 한국은 '마감 지수'만 써요.
+    #  - 평일 한국 시간 15:40 이후 + 장이 닫혀 있으면 → 실시간 점수(kr.score)를 오늘 마감 값으로 사용
+    #  - 그 외(장중·장전) → API history의 마지막 마감 값을 사용
     kst = datetime.now(S.TW_TZ) + timedelta(hours=1)
-    kr_closed = kst.weekday() < 5 and (kst.hour, kst.minute) >= (15, 40)
+    after_close = kst.weekday() < 5 and (kst.hour, kst.minute) >= (15, 40)
     prev_kr = prev.get("kr") if isinstance(prev.get("kr"), dict) else None
     for key, cfg in (("jp", config.JP_SITE), ("kr", config.KR_SITE)):
-        if key == "kr" and not kr_closed:
-            if prev_kr:
-                sis[key] = dict(prev_kr, _raw={})
-                log("  ⏸ kr 장중/장전이라 이전 마감 값 유지 (%s, %s)" % (prev_kr.get("score"), prev_kr.get("as_of") or "날짜 없음"))
-            continue
         try:
             sis[key] = S.sister_site(cfg)
-            log("  ✅ %s %d" % (key, sis[key]["score"]))
         except Exception as e:  # noqa: BLE001
             log("  ⚠ %s 실패: %s" % (key, e))
             continue
         if key == "kr":
-            today = kst.date().isoformat()
-            sis[key]["as_of"] = sis[key].get("as_of") or today
-            if prev_kr and prev_kr.get("as_of") and prev_kr["as_of"] < sis[key]["as_of"]:
-                sis[key]["previous_close"] = prev_kr.get("score")
-            elif prev_kr and prev_kr.get("as_of") == sis[key]["as_of"]:
-                sis[key]["previous_close"] = prev_kr.get("previous_close")
+            raw = sis[key].get("_raw") or {}
+            khist = [h for h in (raw.get("history") or []) if isinstance(h, dict) and h.get("date") and h.get("kr") is not None]
+            market_open = bool((raw.get("indices") or {}).get("marketOpen"))
+            if after_close and not market_open:
+                sis[key]["as_of"] = kst.date().isoformat()
+            elif khist and not (prev_kr and (prev_kr.get("as_of") or "") > khist[-1]["date"]):
+                last = khist[-1]
+                sis[key]["score"], sis[key]["as_of"] = int(last["kr"]), last["date"]
+                log("  ↪ kr 장중/장전이라 마지막 마감 값 사용 (%s)" % last["date"])
+            elif prev_kr:
+                sis[key] = dict(prev_kr, _raw=raw)
+                log("  ↪ kr 이전 마감 값이 더 최신이라 유지 (%s)" % prev_kr.get("as_of"))
+            older = [h for h in khist if h["date"] < (sis[key].get("as_of") or "9")]
+            if older:
+                sis[key]["previous_close"] = int(older[-1]["kr"])
+        log("  ✅ %s %s (%s)" % (key, sis[key].get("score"), sis[key].get("as_of") or "-"))
     # CNN이 막히면 일본 사이트 JSON의 us 값을 빌려 와요
     if us is None and sis.get("jp") and isinstance(sis["jp"]["_raw"].get("us"), dict):
         u = sis["jp"]["_raw"]["us"]
