@@ -1,7 +1,7 @@
 {
  "success": true,
  "tw": {
-  "score": 5,
+  "score": 6,
   "label": "極度恐懼",
   "previous_close": 5,
   "previous_1_week": 7,
@@ -90,8 +90,8 @@
     "key": "fx",
     "name": "新台幣匯率",
     "weight": 0.1,
-    "value": 26,
-    "raw": 1.31,
+    "value": 29,
+    "raw": 0.96,
     "unit": "%",
     "desc": "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。",
     "low": -2.29,
@@ -1958,7 +1958,7 @@
   },
   {
    "date": "2026-11-24",
-   "tw": 5,
+   "tw": 6,
    "taiex": 40122.35,
    "parts": {
     "momentum": 3,
@@ -1967,12 +1967,12 @@
     "margin": 1,
     "foreign": 5,
     "pcr": 0,
-    "fx": 33
+    "fx": 40
    },
    "us": 17
   }
  ],
- "hash": "0e6420b8a7e271e6",
- "updated_at": "2026-11-25T07:14:45+08:00",
- "updated_at_tw": "2026/11/25 07:14"
+ "hash": "0a53cc16eb8a5680",
+ "updated_at": "2026-11-25T11:39:34+08:00",
+ "updated_at_tw": "2026/11/25 11:39"
 }
