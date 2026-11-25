@@ -96,10 +96,14 @@ a.mkt-row:hover{background:#FAFBFD}
 .mkt-row .sc{font-size:1.7rem;font-weight:900;text-align:right;font-variant-numeric:tabular-nums}
 .mkt-row .zl{font-size:.82rem;font-weight:700;text-align:right}
 .mkt-row .zl small{display:block;color:var(--muted);font-weight:400}
+.mkt-row .zl b{display:block;font-size:.95rem}
+.mkt-row .name small.basis{color:var(--cyan-d);font-weight:700}
+.mkt-row .live{display:block;margin-top:2px;font-size:.72rem;font-weight:700;color:var(--cyan-d)}
+a.mkt-row:hover .live{text-decoration:underline}
 .scale{position:relative;display:flex;height:10px;border-radius:6px;overflow:visible}
 .scale span{height:100%;opacity:.85}.scale span:first-child{border-radius:6px 0 0 6px}.scale span:last-child{border-radius:0 6px 6px 0}
 .scale i{position:absolute;top:-5px;width:4px;height:20px;margin-left:-2px;background:var(--ink);border-radius:2px;box-shadow:0 0 0 2px #fff}
-@media(max-width:700px){.mkt-row{grid-template-columns:1fr auto;gap:6px 12px}.mkt-row .scale{grid-column:1/-1;order:3}.mkt-row .zl{display:none}}
+@media(max-width:700px){.mkt-row{grid-template-columns:1fr auto;gap:6px 12px}.mkt-row .scale{grid-column:1/-1;order:3}.mkt-row .zl{grid-column:1/-1;order:4;display:flex;align-items:baseline;gap:10px;text-align:left}.mkt-row .zl small{display:inline}.mkt-row .live{margin:0 0 0 auto}}
 .note{background:#FFF8EA;border:1px solid #F4DDA8;border-radius:10px;padding:10px 14px;font-size:.86rem;color:#6B5216;margin-top:12px}
 
 /* 차트 */
