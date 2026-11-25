@@ -14,7 +14,7 @@ OPERATOR_NAME = "恐貪雷達 編輯部"                  # 운영자 표기
 CONTACT_EMAIL = "contact@feargreedtaiwan.com"   # ← 실제로 받을 수 있는 메일로 바꾸세요
 
 # ── 검색 결과에 나오는 메인 페이지 제목·설명 ───────────────────
-HOME_TITLE = "台股恐懼貪婪指數今日｜恐貪雷達・Fear&Greed Taiwan"   # 메인 페이지 검색 제목 (이대로 표시)
+HOME_TITLE = "恐貪指數今日｜台股恐懼貪婪指數・恐貪雷達 Fear&Greed Taiwan"   # 메인 페이지 검색 제목 (이대로 표시)
 HOME_DESCRIPTION = ("恐貪雷達每天收盤後更新台股恐懼貪婪指數，用加權指數、外資、融資、台指選擇權等7項指標判斷市場是恐慌還是貪婪，"
                     "並同步比較CNN美股、日股、韓股恐懼貪婪指數。Fear & Greed Taiwan（feargreedtaiwan.com）")
 LAUNCH_DATE = "2026-11-20"                       # 사이트 개설일 (약관 제정일 등에 사용)
