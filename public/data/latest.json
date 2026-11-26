@@ -48,6 +48,19 @@
     "n": 252
    },
    {
+    "key": "margin",
+    "name": "融資餘額",
+    "weight": 0.15,
+    "value": 1,
+    "raw": -31.46,
+    "unit": "%",
+    "desc": "上市融資餘額的20日變化率。散戶加碼槓桿代表貪婪。",
+    "low": -32.46,
+    "high": 23.35,
+    "median": 7.6,
+    "n": 252
+   },
+   {
     "key": "foreign",
     "name": "外資動向",
     "weight": 0.15,
@@ -78,7 +91,7 @@
     "name": "新台幣匯率",
     "weight": 0.1,
     "value": 28,
-    "raw": 1.68,
+    "raw": 1.72,
     "unit": "%",
     "desc": "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。",
     "low": -2.29,
@@ -87,9 +100,7 @@
     "n": 252
    }
   ],
-  "missing": [
-   "融資餘額"
-  ],
+  "missing": [],
   "stale": false,
   "taiex": {
    "close": 39151.81,
@@ -116,7 +127,7 @@
   "label": "極度恐懼"
  },
  "kr": {
-  "score": 48,
+  "score": 46,
   "previous_close": 17,
   "as_of": "2026-11-26",
   "url": "https://feargreed.co.kr",
@@ -1953,14 +1964,15 @@
     "momentum": 2,
     "volatility": 0,
     "breadth": 19,
+    "margin": 1,
     "foreign": 4,
     "pcr": 1,
-    "fx": 20
+    "fx": 19
    },
    "us": 15
   }
  ],
- "hash": "2ee20fbc5ccc9dea",
- "updated_at": "2026-11-26T17:28:35+08:00",
- "updated_at_tw": "2026/11/26 17:28"
+ "hash": "84b0be7f8f34b035",
+ "updated_at": "2026-11-27T01:54:21+08:00",
+ "updated_at_tw": "2026/11/27 01:54"
 }
