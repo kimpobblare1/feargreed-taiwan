@@ -90,8 +90,8 @@
     "key": "fx",
     "name": "新台幣匯率",
     "weight": 0.1,
-    "value": 21,
-    "raw": 1.27,
+    "value": 22,
+    "raw": 1.08,
     "unit": "%",
     "desc": "美元兌新台幣的20日變化。新台幣走弱（資金外流）代表恐懼。",
     "low": -2.29,
@@ -109,14 +109,14 @@
   }
  },
  "us": {
-  "score": 15,
-  "previous_close": 15,
-  "previous_1_week": 16,
-  "previous_1_month": 30,
-  "as_of": "2026-11-26",
+  "score": 25,
+  "previous_close": 16,
+  "previous_1_week": 19,
+  "previous_1_month": 33,
+  "as_of": "2026-11-27",
   "url": "https://edition.cnn.com/markets/fear-and-greed",
   "stale": false,
-  "label": "極度恐懼"
+  "label": "恐懼"
  },
  "jp": {
   "score": 10,
@@ -1939,7 +1939,7 @@
     "pcr": 0,
     "fx": 24
    },
-   "us": 16
+   "us": 21
   },
   {
    "date": "2026-11-26",
@@ -1954,7 +1954,7 @@
     "pcr": 1,
     "fx": 5
    },
-   "us": 15
+   "us": 21
   },
   {
    "date": "2026-11-27",
@@ -1967,12 +1967,12 @@
     "margin": 2,
     "foreign": 6,
     "pcr": 2,
-    "fx": 34
+    "fx": 38
    },
-   "us": 15
+   "us": 25
   }
  ],
- "hash": "d63564cb33d3bb59",
- "updated_at": "2026-11-28T06:18:33+08:00",
- "updated_at_tw": "2026/11/28 06:18"
+ "hash": "b270f4e94a6aeaf6",
+ "updated_at": "2026-11-28T12:10:21+08:00",
+ "updated_at_tw": "2026/11/28 12:10"
 }
